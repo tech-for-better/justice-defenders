@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/tech-for-better/justice-defenders/branch/master/graph/badge.svg)](https://codecov.io/gh/tech-for-better/justice-defenders)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
