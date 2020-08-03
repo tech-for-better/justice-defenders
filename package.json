@@ -19,8 +19,7 @@
     "test:report": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "electron-dev-win": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
+    "dev": "nf start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -40,6 +39,7 @@
   "devDependencies": {
     "codecov": "^3.7.2",
     "electron": "^9.1.2",
+    "foreman": "^3.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
