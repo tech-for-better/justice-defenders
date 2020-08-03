@@ -10,12 +10,17 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "main": "src/electron.js",
+  "homepage": "./",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:report": "react-scripts test --coverage --watchAll=false",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron-dev-win": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +38,22 @@
     ]
   },
   "devDependencies": {
-    "codecov": "^3.7.2"
+    "codecov": "^3.7.2",
+    "electron": "^9.1.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "pretty-quick --staged",
+      "eslint"
+    ]
   }
 }
