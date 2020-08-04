@@ -33,13 +33,18 @@ const YearOne = () => {
       if (!yearModule) {
         return console.log("This is not a viable solution!");
       } else {
-        return <ModuleCard key={yearModule.id} title={yearModule.Title} />;
+        return (
+          <ModuleCard
+            key={yearModule.id}
+            title={yearModule.Title}
+            id={yearModule.id}
+          />
+        );
       }
     });
   };
 
   if (yearModules) {
-  
     return (
       <>
         <Header>
