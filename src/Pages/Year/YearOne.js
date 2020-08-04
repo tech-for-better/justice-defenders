@@ -2,10 +2,13 @@ import React from "react";
 import firebase from "../../firebase";
 
 // components
-import ModuleCard from '../../Components/ModuleCard/ModuleCard';
+import ModuleCard from "../../Components/ModuleCard/ModuleCard";
+import HelpCard from "../../Components/HelpCard/HelpCard";
 
 // styles
-import {ModuleCardsContainer} from './YearOne.style'
+import { ModuleCardsContainer } from "./YearOne.style";
+import { IntroSection, Header } from "../../Components/Styles/Containers";
+import { Text, Heading } from "../../Components/Styles/Typography";
 
 const YearOne = () => {
   const [yearInfo, setYearInfo] = React.useState([]);
@@ -16,38 +19,42 @@ const YearOne = () => {
       .firestore()
       .collection("Year1")
       .onSnapshot((snapshot) => {
-            const modules = snapshot.docs.map((doc) => (
-              doc.id === 'Additional' ? setYearInfo({id: doc.id, ...doc.data()}) : {id: doc.id,
-                ...doc.data()
-              })
-              )
-              setYearModules(modules)
-            })
-          }, []);
+        const modules = snapshot.docs.map((doc) =>
+          doc.id === "Additional"
+            ? setYearInfo({ id: doc.id, ...doc.data() })
+            : { id: doc.id, ...doc.data() },
+        );
+        setYearModules(modules);
+      });
+  }, []);
 
   const yearModuleCards = (yearModules) => {
-    return (
-      yearModules.map((yearModule) => {
-        if (!yearModule) {
-          console.log('This is not a viable solution!')
-        } else {
-          return <ModuleCard key={yearModule.id} title={yearModule.Title}/>
-        }
-      })
-    )
-  }
+    return yearModules.map((yearModule) => {
+      if (!yearModule) {
+        console.log("This is not a viable solution!");
+      } else {
+        return <ModuleCard key={yearModule.id} title={yearModule.Title} />;
+      }
+    });
+  };
 
   if (!yearModules) {
-    return <p>Loading</p>
+    return <p>Loading</p>;
   } else {
-      return (
-        <>
-          <h2>{yearInfo.Title}</h2>
-          <h4>{yearInfo.Intro}</h4>
-          <p>{yearInfo.Help}</p>
-          <ModuleCardsContainer>{yearModuleCards(yearModules)}</ModuleCardsContainer>
-        </>
-      );
+    return (
+      <>
+        <Header>
+          <Heading>{yearInfo.Title}</Heading>
+        </Header>
+        <IntroSection>
+          <Text>{yearInfo.Intro}</Text>
+          <HelpCard help={yearInfo.Help} />
+        </IntroSection>
+        <ModuleCardsContainer>
+          {yearModuleCards(yearModules)}
+        </ModuleCardsContainer>
+      </>
+    );
   }
 };
 
