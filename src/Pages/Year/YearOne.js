@@ -38,9 +38,8 @@ const YearOne = () => {
     });
   };
 
-  if (!yearModules) {
-    return <p>Loading</p>;
-  } else {
+  if (yearModules) {
+  
     return (
       <>
         <Header>
