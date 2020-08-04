@@ -31,7 +31,7 @@ const YearOne = () => {
   const yearModuleCards = (yearModules) => {
     return yearModules.map((yearModule) => {
       if (!yearModule) {
-        console.log("This is not a viable solution!");
+        return console.log("This is not a viable solution!");
       } else {
         return <ModuleCard key={yearModule.id} title={yearModule.Title} />;
       }
