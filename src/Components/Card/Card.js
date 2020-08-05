@@ -1,22 +1,21 @@
 import React from "react";
 import { CardContainer } from "./Card.style";
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Card = ({ title, id }) => {
-  const history = useHistory();
+  const params = useParams();
 
-  const handleModuleClick = (event) => {
-    const module = title.toLowerCase().split(" ").join("-");
-    const year = window.location.pathname.split("/")[1];
-    history.push(`${year}/${module}`);
-  };
+  const url = !params.module
+    ? `/${params.year}/${id}`
+    : `/${params.year}/${params.module}/${id}`;
 
   return (
-    <>
-      <CardContainer onClick={handleModuleClick}>
+    <Link to={url}>
+      <CardContainer>
         <h4>{title}</h4>
       </CardContainer>
-    </>
+    </Link>
   );
 };
 

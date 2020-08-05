@@ -7,6 +7,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import GuidancePage from "./Pages/GuidancePage/GuidancePage";
 import HomePage from "./Pages/HomePage/HomePage";
 import ModulePage from "./Pages/ModulePage/ModulePage";
+import SubtopicPage from "./Pages/SubtopicPage/SubtopicPage";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
         />
         <Route exact path="/:year" component={() => <YearPage />} />
         <Route exact path="/:year/:module" component={() => <ModulePage />} />
+        <Route
+          exact
+          path="/:year/:module/:subtopic"
+          component={() => <SubtopicPage />}
+        />
       </Switch>
     </Router>
   );

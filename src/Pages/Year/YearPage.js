@@ -1,5 +1,6 @@
 import React from "react";
 import firebase from "../../firebase";
+import { useParams } from "react-router-dom";
 
 // components
 import Card from "../../Components/Card/Card";
@@ -16,56 +17,61 @@ import {
 import { Text, Heading } from "../../Components/Styles/Typography";
 
 const YearPage = () => {
+  const params = useParams();
+
   const [yearInfo, setYearInfo] = React.useState([]);
   const [yearModules, setYearModules] = React.useState([]);
 
-  // THIS MUST BE REFACTORED
-  const pathname = window.location.pathname.split("");
-  const collection =
-    pathname.slice(1, pathname.length).join("").charAt(0).toUpperCase() +
-    pathname.join("").slice(2);
+  const collection = params.year;
 
   React.useEffect(() => {
     firebase
       .firestore()
       .collection(collection)
-      .onSnapshot((snapshot) => {
-        const modules = snapshot.docs.map((doc) =>
-          doc.id === "Additional"
-            ? setYearInfo({ id: doc.id, ...doc.data() })
-            : { id: doc.id, ...doc.data() },
-        );
-        setYearModules(modules);
+      .doc("modules")
+      .get()
+      .then(function (doc) {
+        setYearModules(doc.data());
+      });
+  }, [collection]);
+
+  console.log(yearModules);
+
+  React.useEffect(() => {
+    firebase
+      .firestore()
+      .collection(collection)
+      .doc("additional")
+      .get()
+      .then(function (doc) {
+        setYearInfo(doc.data());
       });
   }, [collection]);
 
   const yearModuleCards = (yearModules) => {
-    return yearModules.map((yearModule) => {
-      if (!yearModule) {
-        return console.log("This is not a viable solution!");
-      } else {
-        return (
-          <Card
-            key={yearModule.id}
-            title={yearModule.Title}
-            id={yearModule.id}
-          />
-        );
-      }
+    const ordered = {};
+    Object.keys(yearModules)
+      .sort()
+      .forEach(function (key) {
+        ordered[key] = yearModules[key];
+      });
+    const entries = Object.entries(ordered);
+    return entries.map((module) => {
+      return <Card key={module[0]} title={module[1]} id={module[0]} />;
     });
   };
 
   if (yearModules) {
     return (
       <>
-        <Navbar modules={yearInfo} />
+        <Navbar />
         <PageWrapper>
           <Header>
-            <Heading>{yearInfo.Title}</Heading>
+            <Heading>{yearInfo.title}</Heading>
           </Header>
           <IntroSection>
-            <Text>{yearInfo.Intro}</Text>
-            <HelpCard help={yearInfo.Help} />
+            <Text>{yearInfo.intro}</Text>
+            <HelpCard help={yearInfo.help} />
           </IntroSection>
           <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer>
         </PageWrapper>

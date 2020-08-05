@@ -1,8 +1,9 @@
 import React from "react";
-// import firebase from "../../firebase";
+import firebase from "../../firebase";
+import { useParams } from "react-router-dom";
 
 import Navbar from "../../Components/Navbar/Navbar";
-// import Card from "../../Components/Card/Card";
+import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 
 // styles
@@ -15,40 +16,80 @@ import {
 import { Text, Heading } from "../../Components/Styles/Typography";
 
 const ModulePage = (props) => {
-  //     const [moduleSubtopics, setModuleSubtopics] = React.useState([])
-  //     const [moduleInfo, setModuleInfo] = React.useState([])
+  const params = useParams();
+
+  const [modules, setModules] = React.useState([]);
+  const [moduleSubtopics, setModuleSubtopics] = React.useState([]);
+  const [moduleInfo, setModuleInfo] = React.useState([]);
+
+  const yearCollection = params.year;
+  const moduleCollection = `${yearCollection}-${params.module}`;
 
   React.useEffect(() => {
-    //   firebase
-    //   .firestore()
-    //   .collection("Year1")
-    //   .doc("Year1_Module1")
-    //   .get().then(console.log)
-    //   .onSnapshot((snapshot) => {
-    //       console.log(snapshot.fields)
-    //     const subtopics = snapshot.collections.map((doc) =>
-    //       doc.id === "Additional"
-    //         ? setModuleInfo({ id: doc.id, ...doc.data() })
-    //         : { id: doc.id, ...doc.data() },
-    //     );
-    //     console.log(subtopics)
-    //     setModuleSubtopics(subtopics);
-    //   });
-  }, []);
+    firebase
+      .firestore()
+      .collection(yearCollection)
+      .doc("modules")
+      .get()
+      .then(function (doc) {
+        const ordered = sortObject(doc.data());
+        const moduleNames = Object.entries(ordered);
+        setModules(moduleNames);
+      });
+  }, [yearCollection]);
+
+  React.useEffect(() => {
+    firebase
+      .firestore()
+      .collection(moduleCollection)
+      .doc("subtopics")
+      .get()
+      .then(function (doc) {
+        setModuleSubtopics(doc.data());
+      });
+  }, [moduleCollection]);
+
+  React.useEffect(() => {
+    firebase
+      .firestore()
+      .collection(moduleCollection)
+      .doc("additional")
+      .get()
+      .then(function (doc) {
+        setModuleInfo(doc.data());
+      });
+  }, [moduleCollection]);
+
+  const sortObject = (object) => {
+    const ordered = {};
+    Object.keys(object)
+      .sort()
+      .forEach(function (key) {
+        ordered[key] = object[key];
+      });
+    return ordered;
+  };
+
+  const subtopicCards = (moduleSubtopics) => {
+    const ordered = sortObject(moduleSubtopics);
+    const entries = Object.entries(ordered);
+    return entries.map((subtopic) => {
+      return <Card key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
+    });
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar modules={modules} />
       <PageWrapper>
         <Header>
-          <Heading>Module title</Heading>
+          <Heading>{moduleInfo.title}</Heading>
         </Header>
         <IntroSection>
-          <Text>Module Intro</Text>
-          <HelpCard help={"module help text"} />
+          <Text>{moduleInfo.intro}</Text>
+          <HelpCard help={moduleInfo.help} />
         </IntroSection>
-        <CardsContainer>
-          We will map over data and render using card element
-        </CardsContainer>
+        <CardsContainer>{subtopicCards(moduleSubtopics)}</CardsContainer>
       </PageWrapper>
     </>
   );
