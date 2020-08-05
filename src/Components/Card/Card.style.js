@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ModuleContainer = styled.div`
+const CardContainer = styled.div`
   min-width: 10rem;
   min-height: 5rem;
   background-color: lightgrey;
@@ -12,4 +12,4 @@ const ModuleContainer = styled.div`
   cursor: pointer;
 `;
 
-export { ModuleContainer };
+export { CardContainer };

@@ -16,7 +16,7 @@ function App() {
         <Route path="/home" component={() => <HomePage />} />
         <Route exact path="/year1" component={() => <YearOne />} />
         <Route path="/year1/:module" component={() => <ModulePage />} />
-        <Route path="/guidance" component={() => <GuidancePage />} />
+        <Route path="/extraguidance" component={() => <GuidancePage />} />
       </Switch>
     </Router>
   );

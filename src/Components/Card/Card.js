@@ -1,8 +1,8 @@
 import React from "react";
-import { ModuleContainer } from "./ModuleCard.style";
+import { CardContainer } from "./Card.style";
 import { useHistory } from "react-router-dom";
 
-const ModuleCard = ({ title, id }) => {
+const Card = ({ title, id }) => {
   const history = useHistory();
 
   const handleModuleClick = (event) => {
@@ -13,11 +13,11 @@ const ModuleCard = ({ title, id }) => {
 
   return (
     <>
-      <ModuleContainer onClick={handleModuleClick}>
+      <CardContainer onClick={handleModuleClick}>
         <h4>{title}</h4>
-      </ModuleContainer>
+      </CardContainer>
     </>
   );
 };
 
-export default ModuleCard;
+export default Card;

@@ -2,12 +2,17 @@ import React from "react";
 import firebase from "../../firebase";
 
 // components
-import ModuleCard from "../../Components/ModuleCard/ModuleCard";
+import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
+import Navbar from "../../Components/Navbar/Navbar";
 
 // styles
-import { ModuleCardsContainer } from "./YearOne.style";
-import { IntroSection, Header } from "../../Components/Styles/Containers";
+import { CardsContainer } from "./YearOne.style";
+import {
+  IntroSection,
+  Header,
+  PageWrapper,
+} from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
 const YearOne = () => {
@@ -34,7 +39,7 @@ const YearOne = () => {
         return console.log("This is not a viable solution!");
       } else {
         return (
-          <ModuleCard
+          <Card
             key={yearModule.id}
             title={yearModule.Title}
             id={yearModule.id}
@@ -47,16 +52,17 @@ const YearOne = () => {
   if (yearModules) {
     return (
       <>
-        <Header>
-          <Heading>{yearInfo.Title}</Heading>
-        </Header>
-        <IntroSection>
-          <Text>{yearInfo.Intro}</Text>
-          <HelpCard help={yearInfo.Help} />
-        </IntroSection>
-        <ModuleCardsContainer>
-          {yearModuleCards(yearModules)}
-        </ModuleCardsContainer>
+        <Navbar />
+        <PageWrapper>
+          <Header>
+            <Heading>{yearInfo.Title}</Heading>
+          </Header>
+          <IntroSection>
+            <Text>{yearInfo.Intro}</Text>
+            <HelpCard help={yearInfo.Help} />
+          </IntroSection>
+          <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer>
+        </PageWrapper>
       </>
     );
   }
