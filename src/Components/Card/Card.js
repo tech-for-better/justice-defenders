@@ -6,9 +6,9 @@ const Card = ({ title, id }) => {
   const history = useHistory();
 
   const handleModuleClick = (event) => {
-    const moduleUrl = title.toLowerCase().split(" ").join("-");
-    history.push(`year1/${moduleUrl}`);
-    console.log(id);
+    const module = title.toLowerCase().split(" ").join("-");
+    const year = window.location.pathname.split("/")[1];
+    history.push(`${year}/${module}`);
   };
 
   return (

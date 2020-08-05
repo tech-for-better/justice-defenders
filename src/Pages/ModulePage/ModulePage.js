@@ -6,7 +6,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 
 // styles
-import { CardsContainer } from "../Year/YearOne.style";
+import { CardsContainer } from "../Year/YearPage.style";
 import {
   IntroSection,
   Header,

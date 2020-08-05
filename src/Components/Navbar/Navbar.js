@@ -32,7 +32,7 @@ const Navbar = () => {
           Year 3 Modules
         </NavbarListItem>
       </NavbarList>
-      <GuidanceItem onClick={(event) => handleYearClick(event)}>
+      <GuidanceItem onClick={() => history.push("/extra-guidance")}>
         Extra Guidance
       </GuidanceItem>
     </NavbarContainer>
