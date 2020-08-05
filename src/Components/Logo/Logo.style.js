@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const LogoWrapper = styled.svg`
-  height: 2rem;
-  width: 2rem;
+  height: 3rem;
+  width: 3rem;
   cursor: pointer;
   margin: 1rem;
   align-self: center;

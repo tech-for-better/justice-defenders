@@ -1,39 +1,59 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import Logo from "../Logo/Logo";
 import {
   NavbarContainer,
   NavbarListItem,
+  NavbarSublistItem,
   NavbarList,
   GuidanceItem,
 } from "./Navbar.style";
 
-const Navbar = () => {
-  const history = useHistory();
+const Navbar = ({ modules }) => {
+  const params = useParams();
 
-  const handleYearClick = (event) => {
-    const year = event.target.innerText;
-    const redirect = year.toLowerCase().split(" ").slice(0, 2).join("");
-    history.push(`/${redirect}`);
+  const [year, setYear] = React.useState("");
+
+  React.useEffect(() => {
+    setYear(params.year);
+  }, [params]);
+
+  const moduleRender = (modules) => {
+    return modules.map((module) => {
+      return (
+        <NavbarSublistItem key={module[0]}>
+          <Link to={`/${year}/${module[0]}`}>{module[1]}</Link>
+        </NavbarSublistItem>
+      );
+    });
   };
 
   return (
     <NavbarContainer>
       <Logo />
       <NavbarList>
-        <NavbarListItem onClick={(event) => handleYearClick(event)}>
-          Year 1 Modules
+        <NavbarListItem>
+          <Link to="/year1">Year 1 Modules</Link>
+          {year === "year1" && modules ? (
+            <NavbarList>{moduleRender(modules)}</NavbarList>
+          ) : null}
         </NavbarListItem>
-        <NavbarListItem onClick={(event) => handleYearClick(event)}>
-          Year 2 Modules
+        <NavbarListItem>
+          <Link to="/year2">Year 2 Modules</Link>
+          {year === "year2" && modules ? (
+            <NavbarList>{moduleRender(modules)}</NavbarList>
+          ) : null}
         </NavbarListItem>
-        <NavbarListItem onClick={(event) => handleYearClick(event)}>
-          Year 3 Modules
+        <NavbarListItem>
+          <Link to="/year3">Year 3 Modules</Link>
+          {year === "year3" && modules ? (
+            <NavbarList>{moduleRender(modules)}</NavbarList>
+          ) : null}
         </NavbarListItem>
       </NavbarList>
-      <GuidanceItem onClick={() => history.push("/extra-guidance")}>
-        Extra Guidance
+      <GuidanceItem>
+        <Link to="/extra-guidance">Extra Guidance</Link>
       </GuidanceItem>
     </NavbarContainer>
   );
