@@ -10,4 +10,8 @@ const Header = styled.header`
   margin: 1rem;
 `;
 
-export { IntroSection, Header };
+const PageWrapper = styled.div`
+  width: 100%;
+`;
+
+export { IntroSection, Header, PageWrapper };

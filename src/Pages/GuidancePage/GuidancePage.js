@@ -1,17 +1,27 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+
+import Navbar from "../../Components/Navbar/Navbar";
+
+import {
+  IntroSection,
+  Header,
+  PageWrapper,
+} from "../../Components/Styles/Containers";
+import { Text, Heading } from "../../Components/Styles/Typography";
 
 const GuidancePage = () => {
-  const history = useHistory();
-
-  const handleClick = () => {
-    history.push("/year1");
-  };
-
   return (
     <>
-      <h1>Extra guidance </h1>
-      <button onClick={() => handleClick()}>Go back to year one page</button>
+      <Navbar />
+      <PageWrapper>
+        <Header>
+          <Heading>{"Extra guidance"}</Heading>
+        </Header>
+        <IntroSection>
+          <Text>{"Some extra guidance intro text"}</Text>
+        </IntroSection>
+        {/* <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer> */}
+      </PageWrapper>
     </>
   );
 };

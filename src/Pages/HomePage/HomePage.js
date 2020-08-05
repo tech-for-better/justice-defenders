@@ -1,17 +1,16 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+
+// components
+import Navbar from "../../Components/Navbar/Navbar";
+import { PageWrapper } from "../../Components/Styles/Containers";
 
 const HomePage = () => {
-  const history = useHistory();
-
-  const handleClick = () => {
-    history.push("/year1");
-  };
-
   return (
     <>
-      <h1>Home Page</h1>
-      <button onClick={() => handleClick()}>Go to year one page</button>
+      <Navbar />
+      <PageWrapper>
+        <h1>Home Page</h1>
+      </PageWrapper>
     </>
   );
 };
