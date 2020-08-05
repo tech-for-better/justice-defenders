@@ -9,6 +9,7 @@ const ModuleContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 1rem;
+  cursor: pointer;
 `;
 
 export { ModuleContainer };
