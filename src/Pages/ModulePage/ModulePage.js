@@ -2,18 +2,20 @@ import React from "react";
 import firebase from "../../firebase";
 import { useParams } from "react-router-dom";
 
-import Navbar from "../../Components/Navbar/Navbar";
+import Navbar from "../../Components/Navbars/Navbar";
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 
 // styles
-import { CardsContainer } from "../Year/YearPage.style";
+import { CardsContainer } from "../YearPage/YearPage.style";
 import {
   IntroSection,
   Header,
   PageWrapper,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
+
+import { sortObject } from "../../Helpers/helpers";
 
 const ModulePage = (props) => {
   const params = useParams();
@@ -24,19 +26,6 @@ const ModulePage = (props) => {
 
   const yearCollection = params.year;
   const moduleCollection = `${yearCollection}-${params.module}`;
-
-  React.useEffect(() => {
-    firebase
-      .firestore()
-      .collection(yearCollection)
-      .doc("modules")
-      .get()
-      .then(function (doc) {
-        const ordered = sortObject(doc.data());
-        const moduleNames = Object.entries(ordered);
-        setModules(moduleNames);
-      });
-  }, [yearCollection]);
 
   React.useEffect(() => {
     firebase
@@ -56,19 +45,13 @@ const ModulePage = (props) => {
       .doc("additional")
       .get()
       .then(function (doc) {
-        setModuleInfo(doc.data());
+        let data = doc.data();
+        setModuleInfo(data);
+        const orderedModules = sortObject(data["year1-modules"]);
+        const moduleNames = Object.entries(orderedModules);
+        setModules(moduleNames);
       });
   }, [moduleCollection]);
-
-  const sortObject = (object) => {
-    const ordered = {};
-    Object.keys(object)
-      .sort()
-      .forEach(function (key) {
-        ordered[key] = object[key];
-      });
-    return ordered;
-  };
 
   const subtopicCards = (moduleSubtopics) => {
     const ordered = sortObject(moduleSubtopics);

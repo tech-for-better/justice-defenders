@@ -1,7 +1,7 @@
 import React from "react";
 
 // components
-import Navbar from "../../Components/Navbar/Navbar";
+import Navbar from "../../Components/Navbars/Navbar";
 import { PageWrapper } from "../../Components/Styles/Containers";
 
 const HomePage = () => {

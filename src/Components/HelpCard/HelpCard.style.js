@@ -10,6 +10,7 @@ const HelpContainer = styled.div`
   align-items: center;
   margin: 1rem;
   position: relative;
+  padding: 1rem;
 `;
 const SVGWrapper = styled.svg`
   height: 2rem;

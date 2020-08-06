@@ -1,6 +1,6 @@
 import React from "react";
 
-import Navbar from "../../Components/Navbar/Navbar";
+import Navbar from "../../Components/Navbars/Navbar";
 
 import {
   IntroSection,
@@ -20,7 +20,6 @@ const GuidancePage = () => {
         <IntroSection>
           <Text>{"Some extra guidance intro text"}</Text>
         </IntroSection>
-        {/* <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer> */}
       </PageWrapper>
     </>
   );
