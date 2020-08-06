@@ -10,7 +10,6 @@ const SubNavbar = ({ subtopics }) => {
   const module = params.module;
 
   const subtopicRender = (subtopics) => {
-    console.log(subtopics);
     return subtopics.map((subtopic) => {
       return (
         <NavbarListItem key={subtopic[0]}>

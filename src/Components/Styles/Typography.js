@@ -7,6 +7,7 @@ const Text = styled.p`
 const Heading = styled.h2`
   font-size: 2rem;
   font-weight: bold;
+  text-transform: capitalize;
 `;
 
 export { Text, Heading };

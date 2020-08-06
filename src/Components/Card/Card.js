@@ -8,7 +8,7 @@ const Card = ({ title, id }) => {
 
   const url = !params.module
     ? `/${params.year}/${id}`
-    : `/${params.year}/${params.module}/${id}`;
+    : !params.subtopic ? `/${params.year}/${params.module}/${id}` : `/${params.year}/${params.module}/${params.subtopic}/${id}`
 
   return (
     <Link to={url}>
