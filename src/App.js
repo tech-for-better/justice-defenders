@@ -1,14 +1,34 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import YearOne from "./Pages/Year/YearOne";
+// components
+import YearPage from "./Pages/Year/YearPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
+import GuidancePage from "./Pages/GuidancePage/GuidancePage";
+import HomePage from "./Pages/HomePage/HomePage";
+import ModulePage from "./Pages/ModulePage/ModulePage";
+import SubtopicPage from "./Pages/SubtopicPage/SubtopicPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <YearOne></YearOne>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={() => <LandingPage />} />
+        <Route path="/home" component={() => <HomePage />} />
+        <Route
+          exact
+          path="/extra-guidance"
+          component={() => <GuidancePage />}
+        />
+        <Route exact path="/:year" component={() => <YearPage />} />
+        <Route exact path="/:year/:module" component={() => <ModulePage />} />
+        <Route
+          exact
+          path="/:year/:module/:subtopic"
+          component={() => <SubtopicPage />}
+        />
+      </Switch>
+    </Router>
   );
 }
 
