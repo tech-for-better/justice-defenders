@@ -23,7 +23,7 @@ const SubNavbar = ({ subtopics, title }) => {
     const orderedSubtopic = sortObject(content);
     const contentArray = Object.entries(orderedSubtopic);
     return contentArray.map((content) => {
-     return( <NavbarSublistItem>
+     return( <NavbarSublistItem key={content[0]} style={params.content === content[0] ? active : null }>
         <Links to={`/${year}/${module}/${subtopic}/${content[0]}`}>
           {content[1]}
         </Links>
@@ -34,7 +34,7 @@ const SubNavbar = ({ subtopics, title }) => {
   const subtopicRender = (subtopics) => {
     return subtopics.map((subtopic) => {
       return (
-        <NavbarListItem key={subtopic[0]}>
+        <NavbarListItem key={subtopic[0]} style={(params.subtopic === subtopic[0]) && !params.content ? active : null }>
           <Links to={`/${year}/${module}/${subtopic[0]}`}>{subtopic[1]}</Links>
           {title === subtopic[1] ? (
             <NavbarSublist>
@@ -49,6 +49,11 @@ const SubNavbar = ({ subtopics, title }) => {
       );
     });
   };
+
+  const active = {
+    backgroundColor: "white",
+    textDecoration: "underline",
+}
 
   return (
     <NavbarContainer>

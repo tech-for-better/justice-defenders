@@ -13,7 +13,6 @@ const Heading = styled.h2`
 
 const Links = styled(Link)`
 text-decoration: none;
-
 &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
     color: currentColor;

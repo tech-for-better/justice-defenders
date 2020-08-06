@@ -18,6 +18,11 @@ const NavbarList = styled.ul`
   margin-top: 5rem;
   width: 100%;
 `;
+const NavbarListItem = styled.li`
+  list-style: none;
+  padding: .5rem 1rem;
+  width: 100%;
+`;
 const NavbarSublist = styled.ul`
   padding: 0;
   flex: 2;
@@ -25,17 +30,15 @@ const NavbarSublist = styled.ul`
 `;
 const NavbarSublistItem = styled.li`
   list-style: none;
-  padding: .5rem;
+  padding: .5rem 1rem;
   width: 100%;
 `;
-const NavbarListItem = styled.li`
-  list-style: none;
-  margin: 1rem 0;
-  width: 100%;
-  padding: .5rem;
-`;
-const GuidanceItem = styled.p`
+
+const GuidanceItem = styled.div`
   margin: 2rem 0;
+  width: 100%;
+  text-align: center;
+  padding: .5rem;
 `;
 
 export {

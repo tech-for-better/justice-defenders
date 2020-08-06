@@ -24,38 +24,43 @@ const Navbar = ({ modules }) => {
   const moduleRender = (modules) => {
     return modules.map((module) => {
       return (
-        <NavbarSublistItem key={module[0]}>
-          <Links to={`/${year}/${module[0]}`}>{module[1]}</Links>
+        <NavbarSublistItem key={module[0]} style={params.module === module[0] ? active : null }>
+          <Links to={`/${year}/${module[0]}`} >{module[1]}</Links>
         </NavbarSublistItem>
       );
     });
   };
+  
+  const active = {
+    backgroundColor: "white",
+    textDecoration: "underline",
+}
 
   return (
     <NavbarContainer>
       <Logo />
       <NavbarList>
-        <NavbarListItem>
+        <NavbarListItem style={(year === 'year1') && !modules ? active : null}>
           <Links to="/year1">Year 1 Modules</Links>
           {year === "year1" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
-        <NavbarListItem>
-          <Links to="/year2">Year 2 Modules</Links>
+        <NavbarListItem style={(year === 'year2') && !modules ? active : null}>
+          <Links to="/year2" >Year 2 Modules</Links>
           {year === "year2" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
-        <NavbarListItem>
-          <Links to="/year3">Year 3 Modules</Links>
+        <NavbarListItem style={(year === 'year3') && !modules ? active : null}>
+          <Links to="/year3" >Year 3 Modules</Links>
           {year === "year3" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
       </NavbarList>
-      <GuidanceItem>
-        <Links to="/extra-guidance">Extra Guidance</Links>
+      <GuidanceItem style={(window.location.pathname === '/extra-guidance') ? active : null}>
+        <Links to="/extra-guidance" >Extra Guidance</Links>
       </GuidanceItem>
     </NavbarContainer>
   );
