@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import Logo from "../Logo/Logo";
 import {
@@ -10,6 +10,7 @@ import {
   NavbarSublist,
   GuidanceItem,
 } from "./Navbar.style";
+import {Links} from '../Styles/Typography'
 
 const Navbar = ({ modules }) => {
   const params = useParams();
@@ -24,7 +25,7 @@ const Navbar = ({ modules }) => {
     return modules.map((module) => {
       return (
         <NavbarSublistItem key={module[0]}>
-          <Link to={`/${year}/${module[0]}`}>{module[1]}</Link>
+          <Links to={`/${year}/${module[0]}`}>{module[1]}</Links>
         </NavbarSublistItem>
       );
     });
@@ -35,26 +36,26 @@ const Navbar = ({ modules }) => {
       <Logo />
       <NavbarList>
         <NavbarListItem>
-          <Link to="/year1">Year 1 Modules</Link>
+          <Links to="/year1">Year 1 Modules</Links>
           {year === "year1" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem>
-          <Link to="/year2">Year 2 Modules</Link>
+          <Links to="/year2">Year 2 Modules</Links>
           {year === "year2" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem>
-          <Link to="/year3">Year 3 Modules</Link>
+          <Links to="/year3">Year 3 Modules</Links>
           {year === "year3" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
       </NavbarList>
       <GuidanceItem>
-        <Link to="/extra-guidance">Extra Guidance</Link>
+        <Links to="/extra-guidance">Extra Guidance</Links>
       </GuidanceItem>
     </NavbarContainer>
   );

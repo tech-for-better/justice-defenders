@@ -1,7 +1,8 @@
 import React from "react";
 import { CardContainer } from "./Card.style";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+
+import { Links } from '../Styles/Typography'
 
 const Card = ({ title, id }) => {
   const params = useParams();
@@ -11,11 +12,11 @@ const Card = ({ title, id }) => {
     : !params.subtopic ? `/${params.year}/${params.module}/${id}` : `/${params.year}/${params.module}/${params.subtopic}/${id}`
 
   return (
-    <Link to={url}>
+    <Links to={url}>
       <CardContainer>
         <h4>{title}</h4>
       </CardContainer>
-    </Link>
+    </Links>
   );
 };
 
