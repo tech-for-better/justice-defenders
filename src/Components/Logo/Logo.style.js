@@ -6,6 +6,7 @@ const LogoWrapper = styled.svg`
   cursor: pointer;
   margin: 1rem;
   align-self: center;
+  position: absolute;
 `;
 
 export { LogoWrapper };

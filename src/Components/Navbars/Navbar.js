@@ -7,6 +7,7 @@ import {
   NavbarListItem,
   NavbarSublistItem,
   NavbarList,
+  NavbarSublist,
   GuidanceItem,
 } from "./Navbar.style";
 
@@ -36,19 +37,19 @@ const Navbar = ({ modules }) => {
         <NavbarListItem>
           <Link to="/year1">Year 1 Modules</Link>
           {year === "year1" && modules ? (
-            <NavbarList>{moduleRender(modules)}</NavbarList>
+            <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem>
           <Link to="/year2">Year 2 Modules</Link>
           {year === "year2" && modules ? (
-            <NavbarList>{moduleRender(modules)}</NavbarList>
+            <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem>
           <Link to="/year3">Year 3 Modules</Link>
           {year === "year3" && modules ? (
-            <NavbarList>{moduleRender(modules)}</NavbarList>
+            <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
       </NavbarList>

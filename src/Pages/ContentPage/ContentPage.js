@@ -5,10 +5,8 @@ import firebase from "../../firebase";
 import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
 import HelpCard from "../../Components/HelpCard/HelpCard";
-import Card from "../../Components/Card/Card";
 
 // styles
-import { CardsContainer } from "../YearPage/YearPage.style";
 import {
   IntroSection,
   Header,
@@ -18,15 +16,14 @@ import { Text, Heading } from "../../Components/Styles/Typography";
 
 import { sortObject } from "../../Helpers/helpers";
 
-const SubtopicPage = () => {
+const ContentPage = () => {
   const params = useParams();
   const yearCollection = params.year;
-  // const moduleCollection = `${yearCollection}-${params.module}`;
   const subtopicCollection = `${yearCollection}-${params.module}-${params.subtopic}`;
 
   const [subtopics, setSubtopics] = React.useState([]);
   const [modules, setModules] = React.useState([]);
-  const [subtopicInfo, setSubtopicInfo] = React.useState([]);
+  const [contentInfo, setContentInfo] = React.useState([]);
 
   React.useEffect(() => {
     firebase
@@ -56,13 +53,13 @@ const SubtopicPage = () => {
       });
   }, [subtopicCollection]);
 
-  const contentCards = (moduleSubtopics) => {
-    const ordered = sortObject(moduleSubtopics);
-    const entries = Object.entries(ordered);
-    return entries.map((subtopic) => {
-      return <Card key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
-    });
-  };
+  // const contentCards = (moduleSubtopics) => {
+  //   const ordered = sortObject(moduleSubtopics);
+  //   const entries = Object.entries(ordered);
+  //   return entries.map((subtopic) => {
+  //     return <Card key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
+  //   });
+  // };
 
   return (
     <>
@@ -70,21 +67,15 @@ const SubtopicPage = () => {
       <SubNavbar subtopics={subtopics} />
       <PageWrapper>
         <Header>
-          <Heading>{subtopicInfo.title}</Heading>
+          <Heading>{contentInfo.title}</Heading>
         </Header>
         <IntroSection>
-          <Text>{subtopicInfo.intro}</Text>
-          <HelpCard help={subtopicInfo.help} />
+          <Text>{contentInfo.intro}</Text>
+          <HelpCard help={contentInfo.help} />
         </IntroSection>
-        <CardsContainer>
-          {contentCards({
-            readings: "Readings",
-            videos: "Videos",
-            audio: "Audio",
-          })}
-        </CardsContainer>
       </PageWrapper>
     </>
   );
 };
-export default SubtopicPage;
+
+export default ContentPage;

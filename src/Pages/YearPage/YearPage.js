@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 // components
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
-import Navbar from "../../Components/Navbar/Navbar";
+import Navbar from "../../Components/Navbars/Navbar";
 
 // styles
 import { CardsContainer } from "./YearPage.style";
@@ -15,6 +15,8 @@ import {
   PageWrapper,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
+
+import { sortObject } from "../../Helpers/helpers";
 
 const YearPage = () => {
   const params = useParams();
@@ -35,8 +37,6 @@ const YearPage = () => {
       });
   }, [collection]);
 
-  console.log(yearModules);
-
   React.useEffect(() => {
     firebase
       .firestore()
@@ -49,12 +49,7 @@ const YearPage = () => {
   }, [collection]);
 
   const yearModuleCards = (yearModules) => {
-    const ordered = {};
-    Object.keys(yearModules)
-      .sort()
-      .forEach(function (key) {
-        ordered[key] = yearModules[key];
-      });
+    const ordered = sortObject(yearModules);
     const entries = Object.entries(ordered);
     return entries.map((module) => {
       return <Card key={module[0]} title={module[1]} id={module[0]} />;
