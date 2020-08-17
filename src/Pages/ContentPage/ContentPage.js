@@ -24,13 +24,12 @@ const ContentPage = () => {
   const yearCollection = params.year;
   const mediaType = params.content;
   const subtopicCollection = `${yearCollection}-${params.module}-${params.subtopic}`;
-  const contentFolder = `${yearCollection}-${params.module}-${params.subtopic}-${params.content}`;
+  const contentCollection = `${yearCollection}-${params.module}-${params.subtopic}-${params.content}`;
 
   const [subtopics, setSubtopics] = React.useState([]);
   const [modules, setModules] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
-  const [mediaNames, setMediaNames] = React.useState([])
 
   React.useEffect(() => {
     firebase
@@ -38,7 +37,7 @@ const ContentPage = () => {
       .collection(yearCollection)
       .doc("modules")
       .get()
-      .then(function (doc) {
+      .then((doc) => {
         const orderedModules = sortObject(doc.data());
         const moduleNames = Object.entries(orderedModules);
         setModules(moduleNames);
@@ -51,7 +50,7 @@ const ContentPage = () => {
       .collection(subtopicCollection)
       .doc("additional")
       .get()
-      .then(function (doc) {
+      .then((doc) => {
         let data = doc.data();
         setTitle(data.title);
         const orderedSubtopics = sortObject(data["year1-module1-subtopics"]);
@@ -61,36 +60,29 @@ const ContentPage = () => {
   }, [subtopicCollection]);
 
   React.useEffect(() => {
-    const storage = firebase.storage();
-    const urlArray = [];
-    const nameArray = [];
-    let storageRef = storage.ref(contentFolder);
-    const fetch = async () => {
-      const res = await storageRef.listAll()
-        res.items.map(async (item) => {
-          console.log(item.location.path.split('/')[1])
-          nameArray.push(item.location.path.split('/')[1])
-          const url = await item.getDownloadURL();
-          urlArray.push(url);
-        });
-       setContent(urlArray);
-       setMediaNames(nameArray)
-    }
-    fetch();
-  }, [contentFolder]);
+    const mediaArray = [];
+    firebase
+    .firestore()
+    .collection(contentCollection)
+    .get()
+    .then(docs => {
+      docs.forEach((doc) => mediaArray.push(doc.data()))
+    })
+    setContent(mediaArray)
+  }, [contentCollection]);
 
   const mediaDisplay = () => {
     if (mediaType === "videos") {
-      return content.map((url) => {
-        return <Video key={url} src={url} />;
+      return content.map((media) => {
+        return <Video key={media.url} src={media.url} title={media.title}/>;
       });
     } else if (mediaType === "audio") {
-      return content.map((url) => {
-        return <Audio key={url} src={url} />;
+      return content.map((media) => {
+        return <Audio key={media.url} src={media.url} title={media.title} />;
       });
     } else {
-      return content.map((url) => {
-        return <Pdf key={url} src={url} />;
+      return content.map((media) => {
+        return <Pdf key={media.url} src={media.url} title={media.title} />;
       });
     }
   };
