@@ -47,11 +47,11 @@ const ModulePage = (props) => {
       .then(function (doc) {
         let data = doc.data();
         setModuleInfo(data);
-        const orderedModules = sortObject(data["year1-modules"]);
+        const orderedModules = sortObject(data[`${yearCollection}-modules`]);
         const moduleNames = Object.entries(orderedModules);
         setModules(moduleNames);
       });
-  }, [moduleCollection]);
+  }, [moduleCollection, yearCollection]);
 
   const subtopicCards = (moduleSubtopics) => {
     const ordered = sortObject(moduleSubtopics);
