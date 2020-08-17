@@ -2,7 +2,7 @@ import React from "react";
 
 import { VideoContainer, VideoElement } from "./Video.style";
 
-const Video = (props) => {
+const Video = ({src}) => {
   return (
     <VideoContainer>
       <VideoElement
@@ -10,7 +10,7 @@ const Video = (props) => {
         width="100%"
         playsinline
         poster="../../../assets/poster.png">
-        <source src={props.src} type="video/mp4" />
+        <source src={src} type="video/mp4" />
         Sorry, your browser doesn't support embedded videos.
       </VideoElement>
     </VideoContainer>

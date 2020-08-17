@@ -1,7 +1,10 @@
 import React from "react";
 
-const Pdf = () => {
-  return <h1>pdf</h1>;
+const Pdf = ({ src }) => {
+  console.log(src)
+  return (
+    <embed src={src} width="500" height="375" type="application/pdf"></embed>
+  );
 };
 
 export default Pdf;

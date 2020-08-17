@@ -30,6 +30,7 @@ const ContentPage = () => {
   const [modules, setModules] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
+  const [mediaNames, setMediaNames] = React.useState([])
 
   React.useEffect(() => {
     firebase
@@ -62,20 +63,20 @@ const ContentPage = () => {
   React.useEffect(() => {
     const storage = firebase.storage();
     const urlArray = [];
+    const nameArray = [];
     let storageRef = storage.ref(contentFolder);
-    storageRef
-      .listAll()
-      .then((res) => {
-        res.items.map((item) => {
-          return item.getDownloadURL().then((url) => {
-            urlArray.push(url);
-          });
+    const fetch = async () => {
+      const res = await storageRef.listAll()
+        res.items.map(async (item) => {
+          console.log(item.location.path.split('/')[1])
+          nameArray.push(item.location.path.split('/')[1])
+          const url = await item.getDownloadURL();
+          urlArray.push(url);
         });
-        setContent(urlArray);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+       setContent(urlArray);
+       setMediaNames(nameArray)
+    }
+    fetch();
   }, [contentFolder]);
 
   const mediaDisplay = () => {
