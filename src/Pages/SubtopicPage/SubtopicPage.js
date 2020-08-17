@@ -21,7 +21,6 @@ import { sortObject } from "../../Helpers/helpers";
 const SubtopicPage = () => {
   const params = useParams();
   const yearCollection = params.year;
-  // const moduleCollection = `${yearCollection}-${params.module}`;
   const subtopicCollection = `${yearCollection}-${params.module}-${params.subtopic}`;
 
   const [subtopics, setSubtopics] = React.useState([]);
