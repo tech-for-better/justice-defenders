@@ -1,7 +1,6 @@
 import React from "react";
 
 const Pdf = ({ title, src }) => {
-  console.log(src)
   return (
     <>
     <h2>{title}</h2>

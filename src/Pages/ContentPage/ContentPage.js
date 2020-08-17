@@ -24,7 +24,7 @@ const ContentPage = () => {
   const yearCollection = params.year;
   const mediaType = params.content;
   const subtopicCollection = `${yearCollection}-${params.module}-${params.subtopic}`;
-  const contentCollection = `${yearCollection}-${params.module}-${params.subtopic}-${params.content}`;
+  let contentCollection = `${yearCollection}-${params.module}-${params.subtopic}-${params.content}`;
 
   const [subtopics, setSubtopics] = React.useState([]);
   const [modules, setModules] = React.useState([]);
@@ -62,19 +62,20 @@ const ContentPage = () => {
   React.useEffect(() => {
     const mediaArray = [];
     firebase
-    .firestore()
-    .collection(contentCollection)
-    .get()
-    .then(docs => {
-      docs.forEach((doc) => mediaArray.push(doc.data()))
-    })
-    setContent(mediaArray)
+      .firestore()
+      .collection(contentCollection)
+      .get()
+      .then((docs) => {
+        docs.forEach((doc) => mediaArray.push(doc.data()));
+        setContent(mediaArray);
+      });
   }, [contentCollection]);
 
   const mediaDisplay = () => {
+    console.log("media display function called");
     if (mediaType === "videos") {
       return content.map((media) => {
-        return <Video key={media.url} src={media.url} title={media.title}/>;
+        return <Video key={media.url} src={media.url} title={media.title} />;
       });
     } else if (mediaType === "audio") {
       return content.map((media) => {
