@@ -23,7 +23,7 @@
   "main": "src/electron.js",
   "homepage": "./",
   "scripts": {
-    "start": "HOST=localhost react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:report": "react-scripts test --coverage --watchAll=false",
