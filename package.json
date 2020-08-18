@@ -29,10 +29,10 @@
     "test:report": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "dev": "nf start",
+    "dev": "nf start -p 3000",
     "cy:open": "cypress open",
     "cy:report": "cypress run",
-    "cy:ci": "start-server-and-test start http://localhost:3000 cy:report && codecov"
+    "cy:ci": "start-server-and-test start http://localhost:3000 cy:report"
   },
   "eslintConfig": {
     "extends": [
