@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { CardContainer, Icon } from "./Card.style";
 import { Links } from "../Styles/Typography";
 
-const Card = ({ title, id, icon }) => {
+const Card = ({ title, id, icon, dataCy }) => {
   const params = useParams();
 
   const url = !params.module
@@ -14,7 +14,7 @@ const Card = ({ title, id, icon }) => {
     : `/${params.year}/${params.module}/${params.subtopic}/${id}`;
 
   return (
-    <Links to={url}>
+    <Links data-cy={dataCy} to={url}>
       <CardContainer>
         <h4>{title}</h4>
         {icon && <Icon src={icon} />}

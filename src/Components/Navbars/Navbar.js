@@ -41,26 +41,26 @@ const Navbar = ({ modules }) => {
       <Logo />
       <NavbarList>
         <NavbarListItem style={(year === 'year1') && !modules ? active : null}>
-          <Links to="/year1">Year 1 Modules</Links>
+          <Links data-cy="year1" to="/year1">Year 1 Modules</Links>
           {year === "year1" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem style={(year === 'year2') && !modules ? active : null}>
-          <Links to="/year2" >Year 2 Modules</Links>
+          <Links data-cy="year2" to="/year2" >Year 2 Modules</Links>
           {year === "year2" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem style={(year === 'year3') && !modules ? active : null}>
-          <Links to="/year3" >Year 3 Modules</Links>
+          <Links data-cy="year3" to="/year3" >Year 3 Modules</Links>
           {year === "year3" && modules ? (
             <NavbarSublist>{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
       </NavbarList>
       <GuidanceItem style={(window.location.pathname === '/extra-guidance') ? active : null}>
-        <Links to="/extra-guidance" >Extra Guidance</Links>
+        <Links data-cy="extra-guidance" to="/extra-guidance" >Extra Guidance</Links>
       </GuidanceItem>
     </NavbarContainer>
   );
