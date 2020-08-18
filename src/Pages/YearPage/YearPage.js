@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 import Navbar from "../../Components/Navbars/Navbar";
+import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 
 // styles
 import { CardsContainer } from "./YearPage.style";
@@ -56,11 +57,14 @@ const YearPage = () => {
     });
   };
 
+  const crumbs = [{'title': yearInfo.title, 'href': `/${collection}`}]
+
   if (yearModules) {
     return (
       <>
         <Navbar />
         <PageWrapper>
+            {yearInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
           <Header>
             <Heading data-cy="year-title">{yearInfo.title}</Heading>
           </Header>
