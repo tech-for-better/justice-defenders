@@ -8,6 +8,7 @@ import HelpCard from "../../Components/HelpCard/HelpCard";
 import Video from "../../Components/Media/Video/Video";
 import Audio from "../../Components/Media/Audio/Audio";
 import Pdf from "../../Components/Media/Pdf/Pdf";
+import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 
 // styles
 import {
@@ -30,6 +31,7 @@ const ContentPage = () => {
   const [modules, setModules] = React.useState([]);
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
+  const [crumbs, setCrumbs] = React.useState([]);
 
   React.useEffect(() => {
     firebase
@@ -72,7 +74,6 @@ const ContentPage = () => {
   }, [contentCollection]);
 
   const mediaDisplay = () => {
-    console.log("media display function called");
     if (mediaType === "videos") {
       return content.map((media) => {
         return <Video key={media.url} src={media.url} title={media.title} />;
@@ -88,11 +89,38 @@ const ContentPage = () => {
     }
   };
 
+  React.useEffect(() => {
+    const year =
+      yearCollection === "year1"
+        ? "Year One"
+        : yearCollection === "year2"
+        ? "Year Two"
+        : "Year Three";
+
+    const moduleTitle = modules.map((module) => {
+      return module[0] === params.module ? module[1] : null
+    });
+
+    setCrumbs([
+      { title: `${year}`, href: `/${yearCollection}` },
+      { title: moduleTitle, href: `/${params.year}/${params.module}` },
+      {
+        title: title,
+        href: `/${params.year}/${params.module}/${params.subtopic}`,
+      },
+      {
+        title: params.content,
+        href: `/${params.year}/${params.module}/${params.subtopic}/${params.content}`,
+      },
+    ]);
+  }, [modules, yearCollection, subtopicCollection, params, subtopics, title]);
+
   return (
     <>
       <Navbar modules={modules} />
       <SubNavbar subtopics={subtopics} title={title} />
       <PageWrapper>
+        {<BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
           <Heading>{params.content}</Heading>
         </Header>
