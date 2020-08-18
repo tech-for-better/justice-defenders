@@ -52,7 +52,7 @@ const YearPage = () => {
     const ordered = sortObject(yearModules);
     const entries = Object.entries(ordered);
     return entries.map((module) => {
-      return <Card key={module[0]} title={module[1]} id={module[0]} />;
+      return <Card dataCy={"module-cards"} key={module[0]} title={module[1]} id={module[0]} />;
     });
   };
 
@@ -62,10 +62,10 @@ const YearPage = () => {
         <Navbar />
         <PageWrapper>
           <Header>
-            <Heading>{yearInfo.title}</Heading>
+            <Heading data-cy="year-title">{yearInfo.title}</Heading>
           </Header>
           <IntroSection>
-            <Text>{yearInfo.intro}</Text>
+            <Text data-cy="year_intro-text">{yearInfo.intro}</Text>
             <HelpCard help={yearInfo.help} />
           </IntroSection>
           <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer>

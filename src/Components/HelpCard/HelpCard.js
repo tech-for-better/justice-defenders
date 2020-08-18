@@ -4,8 +4,9 @@ import { HelpContainer, SVGWrapper } from "./HelpCard.style";
 
 const HelpCard = ({ help }) => {
   return (
-    <HelpContainer>
+    <HelpContainer data-cy="help">
       <SVGWrapper
+        data-cy="help-icon"
         width="37"
         height="37"
         viewBox="0 0 37 37"
@@ -16,7 +17,7 @@ const HelpCard = ({ help }) => {
           fill="black"
         />
       </SVGWrapper>
-      <p>{help}</p>
+      <p data-cy="help-text">{help}</p>
     </HelpContainer>
   );
 };
