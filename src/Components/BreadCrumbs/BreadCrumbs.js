@@ -27,5 +27,4 @@ const BreadCrumbs = ({ crumbs }) => {
   );
 };
 
-
 export default BreadCrumbs;
