@@ -50,7 +50,9 @@ const SubtopicPage = () => {
       .then(function (doc) {
         let data = doc.data();
         setSubtopicInfo(data);
-        const orderedSubtopics = sortObject(data[`${moduleCollection}-subtopics`]);
+        const orderedSubtopics = sortObject(
+          data[`${moduleCollection}-subtopics`],
+        );
         const subtopicNames = Object.entries(orderedSubtopics);
         setSubtopics(subtopicNames);
       });
@@ -58,7 +60,14 @@ const SubtopicPage = () => {
 
   const contentCards = (subtopicContent) => {
     return subtopicContent.map((content) => {
-      return <Card key={content.name} title={content.name} icon={content.icon} id={content.name} />;
+      return (
+        <Card
+          key={content.name}
+          title={content.name}
+          icon={content.icon}
+          id={content.name}
+        />
+      );
     });
   };
 
@@ -76,9 +85,9 @@ const SubtopicPage = () => {
         </IntroSection>
         <CardsContainer>
           {contentCards([
-            {name: "Audio", icon: "../../../assets/audio-icon.png"},
-            {name: "Readings", icon: "../../assets/readings-icon.png"},
-            {name: "Videos", icon: "../../assets/videos-icon.png"},
+            { name: "audio", icon: "../../../assets/audio-icon.png" },
+            { name: "readings", icon: "../../assets/readings-icon.png" },
+            { name: "videos", icon: "../../assets/videos-icon.png" },
           ])}
         </CardsContainer>
       </PageWrapper>
