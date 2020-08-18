@@ -6,6 +6,7 @@ import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 import Card from "../../Components/Card/Card";
+import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 
 // styles
 import { CardsContainer } from "../YearPage/YearPage.style";
@@ -27,6 +28,7 @@ const SubtopicPage = () => {
   const [subtopics, setSubtopics] = React.useState([]);
   const [modules, setModules] = React.useState([]);
   const [subtopicInfo, setSubtopicInfo] = React.useState([]);
+  const [crumbs, setCrumbs] = React.useState([]);
 
   React.useEffect(() => {
     firebase
@@ -71,11 +73,34 @@ const SubtopicPage = () => {
     });
   };
 
+  React.useEffect(() => {
+    const year =
+      yearCollection === "year1"
+        ? "Year One"
+        : yearCollection === "year2"
+        ? "Year Two"
+        : "Year Three";
+
+    const moduleTitle = modules.map((module) => {
+      return module[0] === params.module ? module[1] : null
+    });
+
+    setCrumbs([
+      { title: `${year}`, href: `/${yearCollection}` },
+      { title: moduleTitle, href: `/${params.year}/${params.module}` },
+      {
+        title: subtopicInfo.title,
+        href: `/${params.year}/${params.module}/${params.subtopic}`,
+      },
+    ]);
+  }, [modules, subtopicInfo.title, yearCollection, subtopicCollection, params]);
+
   return (
     <>
       <Navbar modules={modules} />
       <SubNavbar subtopics={subtopics} />
       <PageWrapper>
+        {<BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
           <Heading>{subtopicInfo.title}</Heading>
         </Header>

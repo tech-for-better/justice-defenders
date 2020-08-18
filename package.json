@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@react-pdf/renderer": "^1.6.10",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -15,7 +17,7 @@
     "react-dom": "^16.13.1",
     "react-pdf": "^4.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.0",
     "styled-components": "^5.1.1"
   },
   "main": "src/electron.js",
@@ -27,10 +29,10 @@
     "test:report": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "dev": "nf start",
+    "dev": "nf start -p 3000",
     "cy:open": "cypress open",
-    "cy:report": "cypress run",
-    "cy:ci": "start-server-and-test start http://localhost:3000 cy:report && codecov"
+    "cy:report": "cypress run --headless",
+    "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov"
   },
   "eslintConfig": {
     "extends": [

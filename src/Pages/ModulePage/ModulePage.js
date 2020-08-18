@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbars/Navbar";
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
+import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs"
 
 // styles
 import { CardsContainer } from "../YearPage/YearPage.style";
@@ -61,10 +62,16 @@ const ModulePage = (props) => {
     });
   };
 
+  const year = (yearCollection === 'year1') ? 'Year One' : (yearCollection === 'year2') ? 'Year Two' : 'Year Three';
+  
+  const crumbs = [{'title': `${year}`, 'href': `/${yearCollection}`}, {'title': moduleInfo.title, 'href': `/${moduleCollection}`}]
+
+  if (modules) {
   return (
     <>
       <Navbar modules={modules} />
       <PageWrapper>
+      {moduleInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
           <Heading>{moduleInfo.title}</Heading>
         </Header>
@@ -77,5 +84,6 @@ const ModulePage = (props) => {
     </>
   );
 };
+}
 
 export default ModulePage;
