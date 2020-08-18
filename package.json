@@ -31,8 +31,8 @@
     "electron": "electron .",
     "dev": "nf start -p 3000",
     "cy:open": "cypress open",
-    "cy:report": "cypress run",
-    "cy:ci": "BROWSER=none start-server-and-test start http://localhost:3000 cy:report"
+    "cy:report": "cypress run --headless",
+    "cy:ci": "BROWSER=none start-server-and-test 3000 cy:report"
   },
   "eslintConfig": {
     "extends": [
