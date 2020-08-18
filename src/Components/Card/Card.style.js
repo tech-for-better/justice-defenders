@@ -6,10 +6,16 @@ const CardContainer = styled.div`
   background-color: lightgrey;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 1rem;
   cursor: pointer;
 `;
 
-export { CardContainer };
+const Icon = styled.img`
+  height: 2.5rem;
+  width: 3rem;
+  margin-bottom: 1rem;
+`;
+export { Icon, CardContainer };

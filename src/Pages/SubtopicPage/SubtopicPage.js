@@ -21,6 +21,7 @@ import { sortObject } from "../../Helpers/helpers";
 const SubtopicPage = () => {
   const params = useParams();
   const yearCollection = params.year;
+  const moduleCollection = `${params.year}-${params.module}`;
   const subtopicCollection = `${yearCollection}-${params.module}-${params.subtopic}`;
 
   const [subtopics, setSubtopics] = React.useState([]);
@@ -49,17 +50,15 @@ const SubtopicPage = () => {
       .then(function (doc) {
         let data = doc.data();
         setSubtopicInfo(data);
-        const orderedSubtopics = sortObject(data["year1-module1-subtopics"]);
+        const orderedSubtopics = sortObject(data[`${moduleCollection}-subtopics`]);
         const subtopicNames = Object.entries(orderedSubtopics);
         setSubtopics(subtopicNames);
       });
-  }, [subtopicCollection]);
+  }, [subtopicCollection, moduleCollection]);
 
-  const contentCards = (moduleSubtopics) => {
-    const ordered = sortObject(moduleSubtopics);
-    const entries = Object.entries(ordered);
-    return entries.map((subtopic) => {
-      return <Card key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
+  const contentCards = (subtopicContent) => {
+    return subtopicContent.map((content) => {
+      return <Card key={content.name} title={content.name} icon={content.icon} id={content.name} />;
     });
   };
 
@@ -76,11 +75,11 @@ const SubtopicPage = () => {
           <HelpCard help={subtopicInfo.help} />
         </IntroSection>
         <CardsContainer>
-          {contentCards({
-            readings: "Readings",
-            videos: "Videos",
-            audio: "Audio",
-          })}
+          {contentCards([
+            {name: "Audio", icon: "../../../assets/audio-icon.png"},
+            {name: "Readings", icon: "../../assets/readings-icon.png"},
+            {name: "Videos", icon: "../../assets/videos-icon.png"},
+          ])}
         </CardsContainer>
       </PageWrapper>
     </>
