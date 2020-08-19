@@ -15,5 +15,6 @@ describe("Visit year1 page", () => {
 
   it("Renders a link to the justice defenders website", () => {
     cy.get("[data-cy=external-link]").contains("Visit")
+    cy.get('[data-cy=external-link]').should('have.attr', 'target', '_blank')
   })
 });

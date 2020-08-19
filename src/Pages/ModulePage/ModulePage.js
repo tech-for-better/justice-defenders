@@ -58,7 +58,7 @@ const ModulePage = (props) => {
     const ordered = sortObject(moduleSubtopics);
     const entries = Object.entries(ordered);
     return entries.map((subtopic) => {
-      return <Card key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
+      return <Card dataCy={"subtopic-cards"} key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
     });
   };
 
@@ -73,11 +73,11 @@ const ModulePage = (props) => {
       <PageWrapper>
       {moduleInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
-          <Heading>{moduleInfo.title}</Heading>
+          <Heading data-cy="module-title">{moduleInfo.title}</Heading>
         </Header>
         <IntroSection>
-          <Text>{moduleInfo.intro}</Text>
-          <HelpCard help={moduleInfo.help} />
+          <Text data-cy="module_intro-text">{moduleInfo.intro}</Text>
+          <HelpCard  help={moduleInfo.help} />
         </IntroSection>
         <CardsContainer>{subtopicCards(moduleSubtopics)}</CardsContainer>
       </PageWrapper>
