@@ -12,10 +12,24 @@ const Heading = styled.h2`
 `;
 
 const Links = styled(Link)`
-text-decoration: none;
-&:focus, &:hover, &:visited, &:link, &:active {
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
     color: currentColor;
-}
-`
-export { Text, Heading, Links };
+  }
+`;
+
+const XternalLink = styled.a`
+  text-decoration: inherit;
+  color: inherit;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`;
+
+export { Text, Heading, Links, XternalLink };

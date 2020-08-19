@@ -7,6 +7,9 @@ describe('Year 1 page navigates around correctly', () => {
       cy.get("[data-cy=module-cards]").first().click();
       cy.url().should("eq", Cypress.config().baseUrl + "/year1/module1");
     });
+    it("Module cards should be greater than length 0", () => {
+        cy.get("[data-cy=module-cards]").its('length').should('be.gt', 0);
+    })
     it('Should render a help card', () => {
         cy.get("[data-cy=help]").and('be.visible')
         cy.get("[data-cy=help-icon]").and('be.visible')
@@ -16,4 +19,5 @@ describe('Year 1 page navigates around correctly', () => {
         cy.get("[data-cy=year_intro-text]").and('be.visible')
         cy.get("[data-cy=year-title]").and('be.visible')
     })
+
 })
