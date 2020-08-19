@@ -32,7 +32,8 @@
     "dev": "nf start -p 3000",
     "cy:open": "cypress open",
     "cy:report": "cypress run --headless",
-    "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov"
+    "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov",
+    "postinstall": "cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/pdf.worker.min.js"
   },
   "eslintConfig": {
     "extends": [

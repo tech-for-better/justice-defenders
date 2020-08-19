@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
+import Modal from "@material-ui/core/Modal";
 
 import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
@@ -21,6 +22,7 @@ import { Text, Heading } from "../../Components/Styles/Typography";
 import { sortObject } from "../../Helpers/helpers";
 
 const ContentPage = () => {
+
   const params = useParams();
   const yearCollection = params.year;
   const mediaType = params.content;
@@ -32,6 +34,7 @@ const ContentPage = () => {
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
   const [crumbs, setCrumbs] = React.useState([]);
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     firebase
@@ -84,11 +87,32 @@ const ContentPage = () => {
       });
     } else {
       return content.map((media) => {
-        return <Pdf key={media.url} src={media.url} title={media.title} />;
+        return (
+          <li key={media.title}>
+            <button type="button" onClick={handleOpen}>
+              {media.title}
+            </button>
+            <Modal
+              media={media}
+              open={open}
+              onClose={handleClose}
+              aria-labelledby={`pdf: ${media.title}`}>
+              {<Pdf src={media.url}/>}
+            </Modal>
+          </li>
+        );
       });
     }
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+  
   React.useEffect(() => {
     const year =
       yearCollection === "year1"
@@ -98,7 +122,7 @@ const ContentPage = () => {
         : "Year Three";
 
     const moduleTitle = modules.map((module) => {
-      return module[0] === params.module ? module[1] : null
+      return module[0] === params.module ? module[1] : null;
     });
 
     setCrumbs([

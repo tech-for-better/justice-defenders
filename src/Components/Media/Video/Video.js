@@ -10,8 +10,7 @@ const Video = ({ src, title }) => {
         <VideoElement
           controls
           width="100%"
-          playsinline
-          poster="../../../assets/poster.png">
+          playsinline>
           <source src={src} type="video/mp4" />
           Sorry, your browser doesn't support embedded videos.
         </VideoElement>
