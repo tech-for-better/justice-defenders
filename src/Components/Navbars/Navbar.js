@@ -24,7 +24,7 @@ const Navbar = ({ modules }) => {
   const moduleRender = (modules) => {
     return modules.map((module) => {
       return (
-        <NavbarSublistItem key={module[0]} style={params.module === module[0] ? active : null }>
+        <NavbarSublistItem data-cy="navbar-sublist-item" key={module[0]} style={params.module === module[0] ? active : null }>
           <Links to={`/${year}/${module[0]}`} >{module[1]}</Links>
         </NavbarSublistItem>
       );
