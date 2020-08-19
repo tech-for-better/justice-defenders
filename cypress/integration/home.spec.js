@@ -12,4 +12,8 @@ describe("Visit year1 page", () => {
     cy.get("[data-cy=year3]").contains("Year 3 Modules");
     cy.get("[data-cy=extra-guidance]").contains("Extra Guidance");
   });
+
+  it("Renders a link to the justice defenders website", () => {
+    cy.get("[data-cy=external-link]").contains("Visit")
+  })
 });
