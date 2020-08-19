@@ -20,9 +20,15 @@ describe("Module 1 page functions as expected", () => {
   it('Should render Navbar sublist', () => {
     cy.get("[data-cy=navbar-sublist]").its('length').should('be.gt', 0)
   })
-//   it("Navbar module list should include page title", () => {
-    
-//   })
+  it("Navbar module list should include page title", () => {
+    cy.get("[data-cy=navbar-sublist-item]").first().then($li => {
+        const value = $li.text()
+        cy.get("[data-cy=module-title]").then($title => {
+            const title = $title.text()
+            expect(title).to.equal(value)
+        })
+    })
+  })
   it("Should render a help card", () => {
     cy.get("[data-cy=help]").and("be.visible");
     cy.get("[data-cy=help-icon]").and("be.visible");
