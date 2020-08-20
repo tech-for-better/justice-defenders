@@ -18,6 +18,9 @@ function createWindow() {
     height: 600,
     title: "Justice Defenders",
     icon: __dirname + "/../public/assets/JD.png",
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+    },
   });
 
   // and load the index.html of the app.
