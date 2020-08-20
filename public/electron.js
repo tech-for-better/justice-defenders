@@ -4,10 +4,10 @@ const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 const ipcMain = electron.ipcMain;
-const channels = require("../src/shared/constants");
 
 const path = require("path");
 const url = require("url");
+const channels = require(path.join(__dirname, "../src/shared/constants"));
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -19,17 +19,18 @@ function createWindow() {
     width: 800,
     height: 600,
     title: "Justice Defenders",
-    icon: path.join(__dirname, "/../public/assets/JD.png"),
+    // icon: path.join(__dirname, "/../public/assets/JD.png"),
     webPreferences: {
-      preload: path.join(__dirname, "/preload.js"),
-    },
+      preload: path.join(__dirname, "../electron/preload.js"),
+      webSecurity: false
+    }
   });
 
   // and load the index.html of the app.
   const startUrl =
     process.env.ELECTRON_START_URL ||
     url.format({
-      pathname: path.join(__dirname, "/../build/index.html"),
+      pathname: path.join(__dirname, '../build/index.html'),
       protocol: "file:",
       slashes: true,
     });
@@ -79,4 +80,4 @@ ipcMain.on(channels.APP_INFO, (event) => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
+// process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";

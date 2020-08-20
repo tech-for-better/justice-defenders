@@ -1,5 +1,7 @@
 {
   "name": "justice-defenders",
+  "description": "Legal aid",
+  "author": "Campbel Docherty and Giovanna Aveiro",
   "productName": "Justice Defenders",
   "version": "0.1.0",
   "private": true,
@@ -10,18 +12,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "cross-env": "^7.0.2",
     "eslint-plugin-cypress": "^2.11.1",
     "firebase": "^7.17.1",
     "firebase-tools": "^8.6.0",
     "react": "^16.13.1",
     "react-audio-player": "^0.13.0",
     "react-dom": "^16.13.1",
-    "react-pdf": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
     "styled-components": "^5.1.1"
   },
-  "main": "electron/electron.js",
+  "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
     "start": "react-scripts -r @cypress/instrument-cra start",
@@ -29,25 +31,24 @@
     "test": "react-scripts test",
     "test:report": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "electron": "electron .",
     "dev": "nf start -p 3000",
     "cy:open": "cypress open",
     "cy:report": "cypress run --headless",
     "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov",
-    "postinstall": "cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/pdf.worker.min.js",
-    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "electron": "electron .",
+    "electron-builder": "electron-builder",
+    "electron-package": "npm run build && npm run electron-builder",
+    "package": "electron-builder --mac --win -c.extraMetadata.main=build/electron.js --publish never",
     "build-electron": "mkdir build/src && cp -r electron/. build/electron && cp -r src/shared/. build/src/shared",
-    "package": "electron-builder build --mac --win --linux -c.extraMetadata.main=build/electron/electron.js --publish never"
+    "electron-start": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "build": {
     "files": [
       "build/**/*",
       "node_modules/**/*"
     ],
-    "publish": {
-      "provider": "github",
-      "repo": "justice-defenders",
-      "owner": "justice-defenders"
+    "directories": {
+      "buildResources": "assets"
     }
   },
   "eslintConfig": {
@@ -72,16 +73,19 @@
     "@cypress/code-coverage": "^3.8.1",
     "@cypress/instrument-cra": "^1.3.1",
     "codecov": "^3.7.2",
+    "concurrently": "^5.3.0",
     "cypress": "^4.12.1",
     "electron": "^9.1.2",
     "electron-builder": "^22.8.0",
+    "electron-is-dev": "^1.2.0",
     "foreman": "^3.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
-    "start-server-and-test": "^1.11.3"
+    "start-server-and-test": "^1.11.3",
+    "wait-on": "^5.2.0"
   },
   "husky": {
     "hooks": {

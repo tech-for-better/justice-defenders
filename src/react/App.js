@@ -33,7 +33,10 @@ function App() {
           exact
           path="/"
           component={() => (
-            <LandingPage appName={appName} appVersion={appVersion} />
+            <LandingPage 
+            appName={appName} 
+            appVersion={appVersion} 
+            />
           )}
         />
         <Route path="/home" component={() => <HomePage />} />
