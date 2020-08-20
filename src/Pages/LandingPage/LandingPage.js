@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   const history = useHistory();
 
   const handleClick = () => {
@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <>
       <section>
-        <h1>Justice Denfenders</h1>
+        <h1>Justice Defenders</h1>
         <button onClick={() => handleClick()}>Log In</button>
       </section>
     </>

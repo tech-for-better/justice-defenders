@@ -3,6 +3,8 @@ const electron = require("electron");
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
+const ipcMain = electron.ipcMain;
+const channels = require("../src/shared/constants");
 
 const path = require("path");
 const url = require("url");
@@ -17,9 +19,9 @@ function createWindow() {
     width: 800,
     height: 600,
     title: "Justice Defenders",
-    icon: __dirname + "/../public/assets/JD.png",
+    icon: path.join(__dirname, "/../public/assets/JD.png"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      preload: path.join(__dirname, "/preload.js"),
     },
   });
 
@@ -67,5 +69,14 @@ app.on("activate", function () {
   }
 });
 
+ipcMain.on(channels.APP_INFO, (event) => {
+  event.sender.send(channels.APP_INFO, {
+    appName: app.getName(),
+    appVersion: app.getVersion(),
+  });
+});
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";

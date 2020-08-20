@@ -21,7 +21,7 @@
     "react-scripts": "3.4.0",
     "styled-components": "^5.1.1"
   },
-  "main": "src/electron.js",
+  "main": "electron/electron.js",
   "homepage": "./",
   "scripts": {
     "start": "react-scripts -r @cypress/instrument-cra start",
@@ -34,7 +34,21 @@
     "cy:open": "cypress open",
     "cy:report": "cypress run --headless",
     "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov",
-    "postinstall": "cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/pdf.worker.min.js"
+    "postinstall": "cp node_modules/pdfjs-dist/build/pdf.worker.min.js public/pdf.worker.min.js",
+    "start-electron": "export ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "build-electron": "mkdir build/src && cp -r electron/. build/electron && cp -r src/shared/. build/src/shared",
+    "package": "electron-builder build --mac --win --linux -c.extraMetadata.main=build/electron/electron.js --publish never"
+  },
+  "build": {
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "repo": "justice-defenders",
+      "owner": "justice-defenders"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -60,6 +74,7 @@
     "codecov": "^3.7.2",
     "cypress": "^4.12.1",
     "electron": "^9.1.2",
+    "electron-builder": "^22.8.0",
     "foreman": "^3.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
