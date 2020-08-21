@@ -1,10 +1,10 @@
 {
   "name": "justice-defenders",
   "description": "Legal aid",
-  "author": "Campbel Docherty and Giovanna Aveiro",
+  "author": "Campbell Docherty (https://github.com/CampbellDochert) and Giovanna Aveiro (https://github.com/glrta)",
   "productName": "Justice Defenders",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "./",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -21,10 +21,10 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "electron-is-dev": "^1.2.0"
   },
   "main": "public/electron.js",
-  "homepage": "./",
   "scripts": {
     "start": "react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
@@ -35,21 +35,16 @@
     "cy:open": "cypress open",
     "cy:report": "cypress run --headless",
     "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov",
-    "electron": "electron .",
+    "electron-start": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
     "electron-builder": "electron-builder",
-    "electron-package": "npm run build && npm run electron-builder",
-    "package": "electron-builder --mac --win -c.extraMetadata.main=build/electron.js --publish never",
-    "build-electron": "mkdir build/src && cp -r electron/. build/electron && cp -r src/shared/. build/src/shared",
-    "electron-start": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-package": "npm run build && npm run electron-builder"
   },
   "build": {
+    "appId": "justice.defenders",
     "files": [
       "build/**/*",
       "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -77,7 +72,6 @@
     "cypress": "^4.12.1",
     "electron": "^9.1.2",
     "electron-builder": "^22.8.0",
-    "electron-is-dev": "^1.2.0",
     "foreman": "^3.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",

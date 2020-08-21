@@ -7,7 +7,7 @@ const LandingPage = (props) => {
   const handleClick = () => {
     history.push("/home");
   };
-console.log(props.appName, props.appVersion)
+
   return (
     <>
       <section>

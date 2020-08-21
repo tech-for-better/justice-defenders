@@ -1,7 +1,5 @@
-module.exports = {
-  channels: {
-    APP_INFO: "app_info",
-  },
-};
-
-
+// module.exports = {
+//   channels: {
+//     APP_INFO: "app_info",
+//   },
+// };
