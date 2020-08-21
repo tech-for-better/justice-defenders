@@ -4,6 +4,7 @@
   "author": "Campbell Docherty (https://github.com/CampbellDochert) and Giovanna Aveiro (https://github.com/glrta)",
   "productName": "Justice Defenders",
   "version": "0.1.0",
+  "private": true,
   "homepage": "./",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -31,19 +32,20 @@
     "test": "react-scripts test",
     "test:report": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "dev": "nf start -p 3000",
+    "dev": "concurrently \"npm run start\" \"wait-on http://localhost:3000 && electron .\"",
     "cy:open": "cypress open",
     "cy:report": "cypress run --headless",
     "cy:ci": "cypress install && start-server-and-test 3000 cy:report && codecov",
     "electron-start": "concurrently \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-builder": "electron-builder",
-    "electron-package": "npm run build && npm run electron-builder"
+    "electron-package": "npm run build && electron-builder build --mac --win"
   },
   "build": {
     "appId": "justice.defenders",
     "files": [
       "build/**/*",
-      "node_modules/**/*"
+      "node_modules/**/*",
+      "assets/*icon.*",
+      "assets/*"
     ]
   },
   "eslintConfig": {

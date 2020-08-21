@@ -1,14 +1,9 @@
 const electron = require("electron");
 const path = require("path");
-// const url = require("url");
 const isDev = require("electron-is-dev");
-// Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
-
-// const ipcMain = electron.ipcMain;
-// const channels = require(path.join(__dirname, "../src/shared/constants"));
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -31,12 +26,7 @@ function createWindow() {
   const startUrl = isDev
     ? "http://localhost:3000"
     : `file://${path.join(__dirname, "../build/index.html")}`;
-  // process.env.ELECTRON_START_URL ||
-  // url.format({
-  //   pathname: path.join(__dirname, '../build/index.html'),
-  //   protocol: "file:",
-  //   slashes: true,
-  // });
+
   mainWindow.loadURL(startUrl);
 
   // Open the DevTools.
@@ -72,13 +62,6 @@ app.on("activate", function () {
     createWindow();
   }
 });
-
-// ipcMain.on(channels.APP_INFO, (event) => {
-//   event.sender.send(channels.APP_INFO, {
-//     appName: app.getName(),
-//     appVersion: app.getVersion(),
-//   });
-// });
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.

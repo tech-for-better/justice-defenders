@@ -1,10 +1,10 @@
 describe("Visit year1 page", () => {
   beforeEach(() => {
-    cy.visit("/home");
+    cy.visit("#/home");
   });
   it("Year 1 takes to year 1 page", () => {
     cy.get("[data-cy=year1]").click();
-    cy.url().should("eq", Cypress.config().baseUrl + "/year1");
+    cy.url().should("eq", Cypress.config().baseUrl + "/#/year1");
   });
 
   it("Navbar has links to Year 2 and Year 3", () => {
@@ -14,7 +14,7 @@ describe("Visit year1 page", () => {
   });
 
   it("Renders a link to the justice defenders website", () => {
-    cy.get("[data-cy=external-link]").contains("Visit")
-    cy.get('[data-cy=external-link]').should('have.attr', 'target', '_blank')
-  })
+    cy.get("[data-cy=external-link]").contains("Visit");
+    cy.get("[data-cy=external-link]").should("have.attr", "target", "_blank");
+  });
 });

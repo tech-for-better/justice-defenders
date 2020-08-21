@@ -1,8 +1,5 @@
 import React from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
-// import { HashRouter as Router, Route } from 'react-router-dom'
-
-// import { channels } from "./shared/constants";
 
 // components
 import YearPage from "./Pages/YearPage/YearPage";
@@ -13,34 +10,11 @@ import ModulePage from "./Pages/ModulePage/ModulePage";
 import SubtopicPage from "./Pages/SubtopicPage/SubtopicPage";
 import ContentPage from "./Pages/ContentPage/ContentPage";
 
-// const { ipcRenderer } = window;
-
 function App() {
-  // const [appName, setAppName] = React.useState("");
-  // const [appVersion, setAppVersion] = React.useState("");
-
-  // ipcRenderer.send(channels.APP_INFO);
-
-  // ipcRenderer.on(channels.APP_INFO, (event, arg) => {
-  //   ipcRenderer.removeAllListeners(channels.APP_INFO);
-  //   const { appName, appVersion } = arg;
-  //   setAppName(appName);
-  //   setAppVersion(appVersion);
-  // });
-
   return (
     <Router>
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => (
-            <LandingPage
-            // appName={appName}
-            // appVersion={appVersion}
-            />
-          )}
-        />
+        <Route exact path="/" component={() => <LandingPage />} />
         <Route path="/home" component={() => <HomePage />} />
         <Route
           exact

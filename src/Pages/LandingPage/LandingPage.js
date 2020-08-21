@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const LandingPage = (props) => {
+const LandingPage = () => {
   const history = useHistory();
 
   const handleClick = () => {
