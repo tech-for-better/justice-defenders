@@ -8,8 +8,8 @@ describe("Visit year1 page", () => {
   });
 
   it("Navbar has links to Year 2 and Year 3", () => {
-    cy.get("[data-cy=year2]").contains("Year 2 Modules");
-    cy.get("[data-cy=year3]").contains("Year 3 Modules");
+    cy.get("[data-cy=year2]").contains("Year II");
+    cy.get("[data-cy=year3]").contains("Year III");
     cy.get("[data-cy=extra-guidance]").contains("Extra Guidance");
   });
 

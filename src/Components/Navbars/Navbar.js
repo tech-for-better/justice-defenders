@@ -41,19 +41,19 @@ const Navbar = ({ modules }) => {
       <Logo />
       <NavbarList>
         <NavbarListItem style={(year === 'year1') && !modules ? active : null}>
-          <Links data-cy="year1" to="/year1">Year 1 Modules</Links>
+          <Links data-cy="year1" to="/year1">Year I</Links>
           {year === "year1" && modules ? (
             <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem style={(year === 'year2') && !modules ? active : null}>
-          <Links data-cy="year2" to="/year2" >Year 2 Modules</Links>
+          <Links data-cy="year2" to="/year2" >Year II</Links>
           {year === "year2" && modules ? (
             <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
           ) : null}
         </NavbarListItem>
         <NavbarListItem style={(year === 'year3') && !modules ? active : null}>
-          <Links data-cy="year3" to="/year3" >Year 3 Modules</Links>
+          <Links data-cy="year3" to="/year3" >Year III</Links>
           {year === "year3" && modules ? (
             <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
           ) : null}

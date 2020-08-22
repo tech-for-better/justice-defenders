@@ -62,7 +62,7 @@ const ModulePage = (props) => {
     });
   };
 
-  const year = (yearCollection === 'year1') ? 'Year One' : (yearCollection === 'year2') ? 'Year Two' : 'Year Three';
+  const year = (yearCollection === 'year1') ? 'Year I' : (yearCollection === 'year2') ? 'Year II' : 'Year III';
   
   const crumbs = [{'title': `${year}`, 'href': `/${yearCollection}`}, {'title': moduleInfo.title, 'href': `/${moduleCollection}`}]
 
