@@ -76,10 +76,10 @@ const SubtopicPage = () => {
   React.useEffect(() => {
     const year =
       yearCollection === "year1"
-        ? "Year One"
+        ? "Year I"
         : yearCollection === "year2"
-        ? "Year Two"
-        : "Year Three";
+        ? "Year II"
+        : "Year III";
 
     const moduleTitle = modules.map((module) => {
       return module[0] === params.module ? module[1] : null

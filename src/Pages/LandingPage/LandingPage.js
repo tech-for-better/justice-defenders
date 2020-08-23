@@ -11,7 +11,7 @@ const LandingPage = () => {
   return (
     <>
       <section>
-        <h1>Justice Denfenders</h1>
+        <h1>Justice Defenders</h1>
         <button onClick={() => handleClick()}>Log In</button>
       </section>
     </>

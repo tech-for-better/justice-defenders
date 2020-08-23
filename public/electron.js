@@ -1,11 +1,9 @@
 const electron = require("electron");
-// Module to control application life.
+const path = require("path");
+const isDev = require("electron-is-dev");
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
-
-const path = require("path");
-const url = require("url");
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -17,20 +15,18 @@ function createWindow() {
     width: 800,
     height: 600,
     title: "Justice Defenders",
-    icon: __dirname + "/../public/assets/JD.png",
+    // icon: path.join(__dirname, "/../public/assets/JD.png"),
     webPreferences: {
-      preload: path.join(__dirname, "preload.js"),
+      // preload: path.join(__dirname, "../electron/preload.js"),
+      webSecurity: false,
     },
   });
 
   // and load the index.html of the app.
-  const startUrl =
-    process.env.ELECTRON_START_URL ||
-    url.format({
-      pathname: path.join(__dirname, "/../build/index.html"),
-      protocol: "file:",
-      slashes: true,
-    });
+  const startUrl = isDev
+    ? "http://localhost:3000"
+    : `file://${path.join(__dirname, "../build/index.html")}`;
+
   mainWindow.loadURL(startUrl);
 
   // Open the DevTools.
@@ -69,3 +65,5 @@ app.on("activate", function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// process.env["ELECTRON_DISABLE_SECURITY_WARNINGS"] = "true";
