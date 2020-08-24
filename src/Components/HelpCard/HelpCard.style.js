@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 const HelpContainer = styled.div`
-  width: 10rem;
-  height: 5rem;
+  min-width: 10rem;
+  min-height: 5rem;
+  max-height: 10rem;
+  max-width: 15rem;
   border-radius: 5px;
   border: 1px dashed black;
   display: flex;

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Navbar from "../../Components/Navbars/Navbar";
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
-import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs"
+import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 
 // styles
 import { CardsContainer } from "../YearPage/YearPage.style";
@@ -13,6 +13,7 @@ import {
   IntroSection,
   Header,
   PageWrapper,
+  IntroTextWrapper,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
@@ -58,32 +59,49 @@ const ModulePage = (props) => {
     const ordered = sortObject(moduleSubtopics);
     const entries = Object.entries(ordered);
     return entries.map((subtopic) => {
-      return <Card dataCy={"subtopic-cards"} key={subtopic[0]} title={subtopic[1]} id={subtopic[0]} />;
+      return (
+        <Card
+          dataCy={"subtopic-cards"}
+          key={subtopic[0]}
+          title={subtopic[1]}
+          id={subtopic[0]}
+        />
+      );
     });
   };
 
-  const year = (yearCollection === 'year1') ? 'Year I' : (yearCollection === 'year2') ? 'Year II' : 'Year III';
-  
-  const crumbs = [{'title': `${year}`, 'href': `/${yearCollection}`}, {'title': moduleInfo.title, 'href': `/${moduleCollection}`}]
+  const year =
+    yearCollection === "year1"
+      ? "Year I"
+      : yearCollection === "year2"
+      ? "Year II"
+      : "Year III";
+
+  const crumbs = [
+    { title: `${year}`, href: `/${yearCollection}` },
+    { title: moduleInfo.title, href: `/${moduleCollection}` },
+  ];
 
   if (modules) {
-  return (
-    <>
-      <Navbar modules={modules} />
-      <PageWrapper>
-      {moduleInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
-        <Header>
-          <Heading data-cy="module-title">{moduleInfo.title}</Heading>
-        </Header>
-        <IntroSection>
-          <Text data-cy="module_intro-text">{moduleInfo.intro}</Text>
-          <HelpCard  help={moduleInfo.help} />
-        </IntroSection>
-        <CardsContainer>{subtopicCards(moduleSubtopics)}</CardsContainer>
-      </PageWrapper>
-    </>
-  );
+    return (
+      <>
+        <Navbar modules={modules} />
+        <PageWrapper>
+          {moduleInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
+          <Header>
+            <Heading data-cy="module-title">{moduleInfo.title}</Heading>
+          </Header>
+          <IntroSection>
+            <IntroTextWrapper>
+              <Text data-cy="module_intro-text">{moduleInfo.intro}</Text>
+            </IntroTextWrapper>
+            <HelpCard help={moduleInfo.help} />
+          </IntroSection>
+          <CardsContainer>{subtopicCards(moduleSubtopics)}</CardsContainer>
+        </PageWrapper>
+      </>
+    );
+  }
 };
-}
 
 export default ModulePage;
