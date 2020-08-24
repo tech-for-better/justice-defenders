@@ -54,7 +54,6 @@ const ContentPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
-        console.log(data);
         setTitle(data.title);
         const orderedSubtopics = sortObject(
           data[`${params.year}-${params.module}-subtopics`],
@@ -65,14 +64,17 @@ const ContentPage = () => {
   }, [subtopicCollection, params]);
 
   React.useEffect(() => {
+    console.log(contentCollection)
     const mediaArray = [];
     firebase
       .firestore()
       .collection(contentCollection)
       .get()
       .then((docs) => {
-        docs.forEach((doc) => mediaArray.push(doc.data()));
-        setContent(mediaArray);
+        docs.forEach((doc) => {
+          mediaArray.push(doc.data());
+          setContent(mediaArray);
+        });
       });
   }, [contentCollection]);
 
@@ -117,6 +119,8 @@ const ContentPage = () => {
       },
     ]);
   }, [modules, yearCollection, subtopicCollection, params, subtopics, title]);
+
+  console.log(content);
 
   return (
     <>
