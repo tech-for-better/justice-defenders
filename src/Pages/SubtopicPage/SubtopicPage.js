@@ -110,9 +110,9 @@ const SubtopicPage = () => {
         </IntroSection>
         <CardsContainer>
           {contentCards([
-            { name: "Audio", icon: "../../../assets/audio-icon.png" },
-            { name: "Readings", icon: "../../assets/readings-icon.png" },
-            { name: "Videos", icon: "../../assets/videos-icon.png" },
+            { name: "audio", icon: "../../../assets/audio-icon.png" },
+            { name: "readings", icon: "../../assets/readings-icon.png" },
+            { name: "videos", icon: "../../assets/videos-icon.png" },
           ])}
         </CardsContainer>
       </PageWrapper>

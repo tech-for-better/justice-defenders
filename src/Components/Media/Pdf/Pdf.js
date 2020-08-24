@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const Pdf = ({ media }) => {
 
+  console.log(media)
   const [open, setOpen] = React.useState(false);
 
   const useStyles = makeStyles((theme) => ({
@@ -31,21 +32,20 @@ const Pdf = ({ media }) => {
 
   return (
     <>
-    <li key={media.title}>
-    <button type="button" onClick={handleOpen}>
-      {media.title}
-    </button>
-    <Modal
-      media={media}
-      open={open}
-      onClose={handleClose}
-      aria-labelledby={`pdf: ${media.title}`}>
-      <div className={classes.paper}>
-      <embed src={media.url} width="100%" height="100%"></embed>
-    </div>
-    </Modal>
-  </li>
-    
+      <li key={media.title}>
+        <button type="button" onClick={handleOpen}>
+          {media.title}
+        </button>
+        <Modal
+          media={media}
+          open={open}
+          onClose={handleClose}
+          aria-labelledby={`pdf: ${media.title}`}>
+          <div className={classes.paper}>
+            <embed src={media.url} width="100%" height="100%"></embed>
+          </div>
+        </Modal>
+      </li>
     </>
   );
 };
