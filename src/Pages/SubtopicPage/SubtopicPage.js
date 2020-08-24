@@ -49,8 +49,9 @@ const SubtopicPage = () => {
       .collection(subtopicCollection)
       .doc("additional")
       .get()
-      .then(function (doc) {
+      .then((doc) => {
         let data = doc.data();
+        console.log(data)
         setSubtopicInfo(data);
         const orderedSubtopics = sortObject(
           data[`${moduleCollection}-subtopics`],
@@ -93,7 +94,7 @@ const SubtopicPage = () => {
         href: `/${params.year}/${params.module}/${params.subtopic}`,
       },
     ]);
-  }, [modules, subtopicInfo.title, yearCollection, subtopicCollection, params]);
+  }, [modules, subtopicInfo, yearCollection, subtopicCollection, params]);
 
   return (
     <>
