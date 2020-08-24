@@ -14,6 +14,7 @@ import {
   IntroSection,
   Header,
   PageWrapper,
+  IntroTextWrapper,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
@@ -82,7 +83,7 @@ const SubtopicPage = () => {
         : "Year III";
 
     const moduleTitle = modules.map((module) => {
-      return module[0] === params.module ? module[1] : null
+      return module[0] === params.module ? module[1] : null;
     });
 
     setCrumbs([
@@ -105,7 +106,9 @@ const SubtopicPage = () => {
           <Heading>{subtopicInfo.title}</Heading>
         </Header>
         <IntroSection>
-          <Text>{subtopicInfo.intro}</Text>
+          <IntroTextWrapper>
+            <Text>{subtopicInfo.intro}</Text>
+          </IntroTextWrapper>
           <HelpCard help={subtopicInfo.help} />
         </IntroSection>
         <CardsContainer>

@@ -2,9 +2,9 @@ import React from "react";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Pdf = ({ media }) => {
+import { PdfWrapper, PdfLink } from "./Pdf.style";
 
-  console.log(media)
+const Pdf = ({ media }) => {
   const [open, setOpen] = React.useState(false);
 
   const useStyles = makeStyles((theme) => ({
@@ -31,22 +31,20 @@ const Pdf = ({ media }) => {
   };
 
   return (
-    <>
-      <li key={media.title}>
-        <button type="button" onClick={handleOpen}>
-          {media.title}
-        </button>
-        <Modal
-          media={media}
-          open={open}
-          onClose={handleClose}
-          aria-labelledby={`pdf: ${media.title}`}>
-          <div className={classes.paper}>
-            <embed src={media.url} width="100%" height="100%"></embed>
-          </div>
-        </Modal>
-      </li>
-    </>
+    <PdfWrapper key={media.title}>
+      <PdfLink type="button" onClick={handleOpen}>
+        {media.title}
+      </PdfLink>
+      <Modal
+        media={media}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby={`pdf: ${media.title}`}>
+        <div className={classes.paper}>
+          <embed src={media.url} width="100%" height="100%"></embed>
+        </div>
+      </Modal>
+    </PdfWrapper>
   );
 };
 

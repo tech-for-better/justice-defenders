@@ -15,6 +15,7 @@ import {
   IntroSection,
   Header,
   PageWrapper,
+  ContentSection,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
@@ -64,7 +65,6 @@ const ContentPage = () => {
   }, [subtopicCollection, params]);
 
   React.useEffect(() => {
-    console.log(contentCollection)
     const mediaArray = [];
     firebase
       .firestore()
@@ -120,8 +120,6 @@ const ContentPage = () => {
     ]);
   }, [modules, yearCollection, subtopicCollection, params, subtopics, title]);
 
-  console.log(content);
-
   return (
     <>
       <Navbar modules={modules} />
@@ -135,7 +133,7 @@ const ContentPage = () => {
           <Text />
           <HelpCard help={`Find here ${params.content} about ${title}`} />
         </IntroSection>
-        <section>{mediaDisplay()}</section>
+        <ContentSection>{mediaDisplay()}</ContentSection>
       </PageWrapper>
     </>
   );
