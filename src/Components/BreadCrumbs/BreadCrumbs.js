@@ -13,7 +13,7 @@ const BreadCrumbs = ({ crumbs }) => {
               ? "textPrimary"
               : "inherit"
           }
-          href={`${crumb.href}`}>
+          href={`/#${crumb.href}`}>
           {crumb.title}
         </Link>
       );

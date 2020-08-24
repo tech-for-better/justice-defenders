@@ -71,8 +71,10 @@ const ContentPage = () => {
       .collection(contentCollection)
       .get()
       .then((docs) => {
-        docs.forEach((doc) => mediaArray.push(doc.data()));
-        setContent(mediaArray);
+        docs.forEach((doc) => {
+          mediaArray.push(doc.data());
+          setContent(mediaArray);
+        });
       });
   }, [contentCollection]);
 

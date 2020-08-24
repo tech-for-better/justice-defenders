@@ -29,8 +29,8 @@ function createWindow() {
 
   mainWindow.loadURL(startUrl);
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  // Get rid of default application menu bar
+  mainWindow.setMenuBarVisibility(false);
 
   // Emitted when the window is closed.
   mainWindow.on("closed", function () {
