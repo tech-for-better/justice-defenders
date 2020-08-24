@@ -18,4 +18,7 @@ const Icon = styled.img`
   width: 3rem;
   margin-bottom: 1rem;
 `;
-export { Icon, CardContainer };
+const Title = styled.h4`
+  text-transform: capitalize;
+`;
+export { Icon, CardContainer, Title };

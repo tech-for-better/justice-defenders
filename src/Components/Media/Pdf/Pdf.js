@@ -1,7 +1,12 @@
 import React from "react";
+import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Pdf = ({ title, src }) => {
+import { PdfWrapper, PdfLink } from "./Pdf.style";
+
+const Pdf = ({ media }) => {
+  const [open, setOpen] = React.useState(false);
+
   const useStyles = makeStyles((theme) => ({
     paper: {
       position: "absolute",
@@ -17,10 +22,29 @@ const Pdf = ({ title, src }) => {
 
   const classes = useStyles();
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <div className={classes.paper}>
-      <embed src={src} width="100%" height="100%"></embed>
-    </div>
+    <PdfWrapper key={media.title}>
+      <PdfLink type="button" onClick={handleOpen}>
+        {media.title}
+      </PdfLink>
+      <Modal
+        media={media}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby={`pdf: ${media.title}`}>
+        <div className={classes.paper}>
+          <embed src={media.url} width="100%" height="100%"></embed>
+        </div>
+      </Modal>
+    </PdfWrapper>
   );
 };
 

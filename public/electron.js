@@ -17,7 +17,7 @@ function createWindow() {
     title: "Justice Defenders",
     // icon: path.join(__dirname, "/../public/assets/JD.png"),
     webPreferences: {
-      // preload: path.join(__dirname, "../electron/preload.js"),
+      preload: path.join(__dirname, "../electron/preload.js"),
       webSecurity: false,
     },
   });

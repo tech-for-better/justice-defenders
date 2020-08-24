@@ -1,7 +1,18 @@
 import styled from "styled-components";
 
-const PdfWrapper = styled.div`
+const PdfWrapper = styled.li`
   margin: 1rem;
+  width: 100%;
 `;
 
-export { PdfWrapper };
+const PdfLink = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: underline;
+`;
+export { PdfWrapper, PdfLink };

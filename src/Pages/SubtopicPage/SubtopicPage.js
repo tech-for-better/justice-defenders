@@ -52,7 +52,6 @@ const SubtopicPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
-        console.log(data)
         setSubtopicInfo(data);
         const orderedSubtopics = sortObject(
           data[`${moduleCollection}-subtopics`],
