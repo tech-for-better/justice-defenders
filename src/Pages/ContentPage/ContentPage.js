@@ -55,7 +55,6 @@ const ContentPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
-        console.log(data);
         setTitle(data.title);
         const orderedSubtopics = sortObject(
           data[`${params.year}-${params.module}-subtopics`],

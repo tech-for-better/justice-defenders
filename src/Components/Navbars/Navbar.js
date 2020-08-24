@@ -9,8 +9,9 @@ import {
   NavbarList,
   NavbarSublist,
   GuidanceItem,
+  NavbarLinks,
 } from "./Navbar.style";
-import {Links} from '../Styles/Typography'
+import { Links } from "../Styles/Typography";
 
 const Navbar = ({ modules }) => {
   const params = useParams();
@@ -24,43 +25,61 @@ const Navbar = ({ modules }) => {
   const moduleRender = (modules) => {
     return modules.map((module) => {
       return (
-        <NavbarSublistItem data-cy="navbar-sublist-item" key={module[0]} style={params.module === module[0] ? active : null }>
-          <Links to={`/${year}/${module[0]}`} >{module[1]}</Links>
+        <NavbarSublistItem
+          data-cy="navbar-sublist-item"
+          key={module[0]}
+          style={params.module === module[0] ? active : null}>
+          <NavbarLinks to={`/${year}/${module[0]}`}>{module[1]}</NavbarLinks>
         </NavbarSublistItem>
       );
     });
   };
-  
+
   const active = {
     backgroundColor: "white",
     textDecoration: "underline",
-}
+  };
 
   return (
     <NavbarContainer>
       <Logo />
       <NavbarList>
-        <NavbarListItem style={(year === 'year1') && !modules ? active : null}>
-          <Links data-cy="year1" to="/year1">Year I</Links>
+        <NavbarListItem style={year === "year1" && !modules ? active : null}>
+          <NavbarLinks data-cy="year1" to="/year1">
+            Year I
+          </NavbarLinks>
           {year === "year1" && modules ? (
-            <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
+            <NavbarSublist data-cy="navbar-sublist">
+              {moduleRender(modules)}
+            </NavbarSublist>
           ) : null}
         </NavbarListItem>
-        <NavbarListItem style={(year === 'year2') && !modules ? active : null}>
-          <Links data-cy="year2" to="/year2" >Year II</Links>
+        <NavbarListItem style={year === "year2" && !modules ? active : null}>
+          <NavbarLinks data-cy="year2" to="/year2">
+            Year II
+          </NavbarLinks>
           {year === "year2" && modules ? (
-            <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
+            <NavbarSublist data-cy="navbar-sublist">
+              {moduleRender(modules)}
+            </NavbarSublist>
           ) : null}
         </NavbarListItem>
-        <NavbarListItem style={(year === 'year3') && !modules ? active : null}>
-          <Links data-cy="year3" to="/year3" >Year III</Links>
+        <NavbarListItem style={year === "year3" && !modules ? active : null}>
+          <NavbarLinks data-cy="year3" to="/year3">
+            Year III
+          </NavbarLinks>
           {year === "year3" && modules ? (
-            <NavbarSublist data-cy="navbar-sublist">{moduleRender(modules)}</NavbarSublist>
+            <NavbarSublist data-cy="navbar-sublist">
+              {moduleRender(modules)}
+            </NavbarSublist>
           ) : null}
         </NavbarListItem>
       </NavbarList>
-      <GuidanceItem style={(window.location.pathname === '/extra-guidance') ? active : null}>
-        <Links data-cy="extra-guidance" to="/extra-guidance" >Extra Guidance</Links>
+      <GuidanceItem
+        style={window.location.pathname === "/extra-guidance" ? active : null}>
+        <Links data-cy="extra-guidance" to="/extra-guidance">
+          Extra Guidance
+        </Links>
       </GuidanceItem>
     </NavbarContainer>
   );
