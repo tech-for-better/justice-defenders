@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { ReactSVG } from "react-svg";
 
-const LogoWrapper = styled.svg`
-  height: 3rem;
-  width: 3rem;
+const LogoWrapper = styled(ReactSVG)`
+  height: 2rem;
+  width: 2rem;
   cursor: pointer;
   margin-top: 1rem;
   position: absolute;

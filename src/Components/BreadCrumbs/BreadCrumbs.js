@@ -6,7 +6,6 @@ const BreadCrumbs = ({ crumbs }) => {
     return crumbs.map((crumb) => {
       return (
         <Link
-          
           style={{ textTransform: "capitalize" }}
           key={crumb.href}
           color={
@@ -15,7 +14,7 @@ const BreadCrumbs = ({ crumbs }) => {
               : "inherit"
           }
           href={`/#${crumb.href}`}>
-          {crumb.title}
+          {crumb.title ? crumb.title : ""}
         </Link>
       );
     });
