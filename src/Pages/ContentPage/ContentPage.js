@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
-import Modal from "@material-ui/core/Modal";
 
 import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
@@ -22,7 +21,6 @@ import { Text, Heading } from "../../Components/Styles/Typography";
 import { sortObject } from "../../Helpers/helpers";
 
 const ContentPage = () => {
-
   const params = useParams();
   const yearCollection = params.year;
   const mediaType = params.content;
@@ -34,7 +32,6 @@ const ContentPage = () => {
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
   const [crumbs, setCrumbs] = React.useState([]);
-  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     firebase
@@ -57,9 +54,11 @@ const ContentPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
-        console.log(data)
+        console.log(data);
         setTitle(data.title);
-        const orderedSubtopics = sortObject(data[`${params.year}-${params.module}-subtopics`]);
+        const orderedSubtopics = sortObject(
+          data[`${params.year}-${params.module}-subtopics`],
+        );
         const subtopicNames = Object.entries(orderedSubtopics);
         setSubtopics(subtopicNames);
       });
@@ -88,32 +87,11 @@ const ContentPage = () => {
       });
     } else {
       return content.map((media) => {
-        return (
-          <li key={media.title}>
-            <button type="button" onClick={handleOpen}>
-              {media.title}
-            </button>
-            <Modal
-              media={media}
-              open={open}
-              onClose={handleClose}
-              aria-labelledby={`pdf: ${media.title}`}>
-              {<Pdf src={media.url}/>}
-            </Modal>
-          </li>
-        );
+        return <Pdf key={media.title} media={media}></Pdf>;
       });
     }
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  
   React.useEffect(() => {
     const year =
       yearCollection === "year1"
