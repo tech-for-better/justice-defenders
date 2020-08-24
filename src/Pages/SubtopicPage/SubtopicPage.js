@@ -64,6 +64,7 @@ const SubtopicPage = () => {
     return subtopicContent.map((content) => {
       return (
         <Card
+          dataCy={"content-cards"}
           key={content.name}
           title={content.name}
           icon={content.icon}
@@ -102,10 +103,10 @@ const SubtopicPage = () => {
       <PageWrapper>
         {<BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
-          <Heading>{subtopicInfo.title}</Heading>
+          <Heading data-cy="subtopic-title">{subtopicInfo.title}</Heading>
         </Header>
         <IntroSection>
-          <Text>{subtopicInfo.intro}</Text>
+          <Text data-cy="subtopic-intro-text">{subtopicInfo.intro}</Text>
           <HelpCard help={subtopicInfo.help} />
         </IntroSection>
         <CardsContainer>

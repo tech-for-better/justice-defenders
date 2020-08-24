@@ -64,7 +64,6 @@ const ContentPage = () => {
   }, [subtopicCollection, params]);
 
   React.useEffect(() => {
-    console.log(contentCollection)
     const mediaArray = [];
     firebase
       .firestore()
@@ -119,8 +118,6 @@ const ContentPage = () => {
       },
     ]);
   }, [modules, yearCollection, subtopicCollection, params, subtopics, title]);
-
-  console.log(content);
 
   return (
     <>
