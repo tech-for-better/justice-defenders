@@ -51,7 +51,6 @@ const SubtopicPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
-        console.log(data)
         setSubtopicInfo(data);
         const orderedSubtopics = sortObject(
           data[`${moduleCollection}-subtopics`],
@@ -111,9 +110,9 @@ const SubtopicPage = () => {
         </IntroSection>
         <CardsContainer>
           {contentCards([
-            { name: "audio", icon: "../../../assets/audio-icon.png" },
-            { name: "readings", icon: "../../assets/readings-icon.png" },
-            { name: "videos", icon: "../../assets/videos-icon.png" },
+            { name: "Audio", icon: "../../../assets/audio-icon.png" },
+            { name: "Readings", icon: "../../assets/readings-icon.png" },
+            { name: "Videos", icon: "../../assets/videos-icon.png" },
           ])}
         </CardsContainer>
       </PageWrapper>
