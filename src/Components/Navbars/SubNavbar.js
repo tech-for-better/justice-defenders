@@ -25,6 +25,7 @@ const SubNavbar = ({ subtopics, title }) => {
     return contentArray.map((content) => {
       return (
         <NavbarSublistItem
+          data-cy="subNavbar-sublist-item"
           key={content[0]}
           style={params.content === content[0] ? active : null}>
           <NavbarLinks to={`/${year}/${module}/${subtopic}/${content[0]}`}>
@@ -39,6 +40,7 @@ const SubNavbar = ({ subtopics, title }) => {
     return subtopics.map((subtopic) => {
       return (
         <NavbarListItem
+          data-cy="subNavbar-item"
           key={subtopic[0]}
           style={
             params.subtopic === subtopic[0] && !params.content ? active : null
@@ -67,7 +69,7 @@ const SubNavbar = ({ subtopics, title }) => {
 
   return (
     <NavbarContainer>
-      <NavbarList>{subtopicRender(subtopics)}</NavbarList>
+      <NavbarList data-cy="subNavbar">{subtopicRender(subtopics)}</NavbarList>
     </NavbarContainer>
   );
 };

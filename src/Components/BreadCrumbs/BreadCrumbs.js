@@ -6,7 +6,8 @@ const BreadCrumbs = ({ crumbs }) => {
     return crumbs.map((crumb) => {
       return (
         <Link
-        style={{textTransform: "capitalize"}}
+          
+          style={{ textTransform: "capitalize" }}
           key={crumb.href}
           color={
             crumb.title === crumbs[crumbs.length - 1].title
@@ -21,7 +22,7 @@ const BreadCrumbs = ({ crumbs }) => {
   };
 
   return (
-    <Breadcrumbs separator="›" aria-label="breadcrumb">
+    <Breadcrumbs data-cy="breadcrumbs" separator="›" aria-label="breadcrumb">
       {LinkRenderer(crumbs)}
     </Breadcrumbs>
   );
