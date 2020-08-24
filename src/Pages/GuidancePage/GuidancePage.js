@@ -32,9 +32,9 @@ const GuidancePage = () => {
 
   const guidanceDisplay = (extraGuidance) => {
     return extraGuidance.map((guidance) => {
-      return <Pdf key={guidance.title} media={guidance}></Pdf>
-    })
-  }
+      return <Pdf key={guidance.title} media={guidance}></Pdf>;
+    });
+  };
 
   return (
     <>
@@ -44,7 +44,11 @@ const GuidancePage = () => {
           <Heading>{"Extra guidance"}</Heading>
         </Header>
         <IntroSection>
-          <Text>{"On this page you can find supplementary course material such as regulations and handbooks"}</Text>
+          <Text>
+            {
+              "On this page you can find supplementary course material such as regulations and handbooks"
+            }
+          </Text>
         </IntroSection>
         <section>{guidanceDisplay(extraGuidance)}</section>
       </PageWrapper>

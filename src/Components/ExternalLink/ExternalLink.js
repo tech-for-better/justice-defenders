@@ -1,4 +1,5 @@
 import React from "react";
+import isElectron from "is-electron";
 
 import { XternalLink } from "../Styles/Typography";
 
@@ -6,9 +7,11 @@ const { shell } = window;
 
 const ExternalLink = ({ href, textContent }) => {
   const defaultBrowser = (event) => {
-    event.preventDefault();
-    let link = event.target.href;
-    shell.openExternal(link);
+    if (isElectron()) {
+      event.preventDefault();
+      let link = event.target.href;
+      shell.openExternal(link);
+    }
   };
 
   return (
