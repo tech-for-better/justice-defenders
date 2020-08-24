@@ -7,8 +7,8 @@ import {
   NavbarListItem,
   NavbarSublistItem,
   NavbarSublist,
+  NavbarLinks,
 } from "./Navbar.style";
-import { Links } from '../Styles/Typography'
 
 import { sortObject } from "../../Helpers/helpers";
 
@@ -23,19 +23,31 @@ const SubNavbar = ({ subtopics, title }) => {
     const orderedSubtopic = sortObject(content);
     const contentArray = Object.entries(orderedSubtopic);
     return contentArray.map((content) => {
-     return( <NavbarSublistItem data-cy="subNavbar-sublist-item" key={content[0]} style={params.content === content[0] ? active : null }>
-        <Links to={`/${year}/${module}/${subtopic}/${content[0]}`}>
-          {content[1]}
-        </Links>
-      </NavbarSublistItem>
-    )});
+      return (
+        <NavbarSublistItem
+          data-cy="subNavbar-sublist-item"
+          key={content[0]}
+          style={params.content === content[0] ? active : null}>
+          <NavbarLinks to={`/${year}/${module}/${subtopic}/${content[0]}`}>
+            {content[1]}
+          </NavbarLinks>
+        </NavbarSublistItem>
+      );
+    });
   };
 
   const subtopicRender = (subtopics) => {
     return subtopics.map((subtopic) => {
       return (
-        <NavbarListItem data-cy="subNavbar-item"  key={subtopic[0]} style={(params.subtopic === subtopic[0]) && !params.content ? active : null }>
-          <Links to={`/${year}/${module}/${subtopic[0]}`}>{subtopic[1]}</Links>
+        <NavbarListItem
+          data-cy="subNavbar-item"
+          key={subtopic[0]}
+          style={
+            params.subtopic === subtopic[0] && !params.content ? active : null
+          }>
+          <NavbarLinks to={`/${year}/${module}/${subtopic[0]}`}>
+            {subtopic[1]}
+          </NavbarLinks>
           {title === subtopic[1] ? (
             <NavbarSublist>
               {contentRender({
@@ -53,11 +65,11 @@ const SubNavbar = ({ subtopics, title }) => {
   const active = {
     backgroundColor: "white",
     textDecoration: "underline",
-}
+  };
 
   return (
     <NavbarContainer>
-      <NavbarList data-cy='subNavbar'>{subtopicRender(subtopics)}</NavbarList>
+      <NavbarList data-cy="subNavbar">{subtopicRender(subtopics)}</NavbarList>
     </NavbarContainer>
   );
 };

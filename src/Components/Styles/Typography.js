@@ -22,7 +22,6 @@ const Links = styled(Link)`
     color: currentColor;
   }
 `;
-
 const XternalLink = styled.a`
   text-decoration: inherit;
   color: inherit;

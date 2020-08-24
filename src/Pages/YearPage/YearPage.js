@@ -12,6 +12,7 @@ import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 import { CardsContainer } from "./YearPage.style";
 import {
   IntroSection,
+  IntroTextWrapper,
   Header,
   PageWrapper,
 } from "../../Components/Styles/Containers";
@@ -53,23 +54,32 @@ const YearPage = () => {
     const ordered = sortObject(yearModules);
     const entries = Object.entries(ordered);
     return entries.map((module) => {
-      return <Card dataCy={"module-cards"} key={module[0]} title={module[1]} id={module[0]} />;
+      return (
+        <Card
+          dataCy={"module-cards"}
+          key={module[0]}
+          title={module[1]}
+          id={module[0]}
+        />
+      );
     });
   };
 
-  const crumbs = [{'title': yearInfo.title, 'href': `/${collection}`}]
+  const crumbs = [{ title: yearInfo.title, href: `/${collection}` }];
 
   if (yearModules) {
     return (
       <>
         <Navbar />
         <PageWrapper>
-            {yearInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
+          {yearInfo.title && <BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
           <Header>
             <Heading data-cy="year-title">{yearInfo.title}</Heading>
           </Header>
           <IntroSection>
-            <Text data-cy="year_intro-text">{yearInfo.intro}</Text>
+            <IntroTextWrapper>
+              <Text data-cy="year_intro-text">{yearInfo.intro}</Text>
+            </IntroTextWrapper>
             <HelpCard help={yearInfo.help} />
           </IntroSection>
           <CardsContainer>{yearModuleCards(yearModules)}</CardsContainer>

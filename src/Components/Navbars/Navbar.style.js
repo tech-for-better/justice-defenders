@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -20,17 +21,17 @@ const NavbarList = styled.ul`
 `;
 const NavbarListItem = styled.li`
   list-style: none;
-  padding: .5rem 1rem;
+  padding: 0.5rem 0;
   width: 100%;
 `;
 const NavbarSublist = styled.ul`
   padding: 0;
   flex: 2;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 `;
 const NavbarSublistItem = styled.li`
   list-style: none;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   width: 100%;
 `;
 
@@ -38,9 +39,20 @@ const GuidanceItem = styled.div`
   margin: 2rem 0;
   width: 100%;
   text-align: center;
-  padding: .5rem;
+  padding: 0.5rem;
 `;
-
+const NavbarLinks = styled(Link)`
+  text-decoration: none;
+  padding-left: 1rem;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: currentColor;
+  }
+`;
 export {
   NavbarContainer,
   NavbarListItem,
@@ -48,4 +60,5 @@ export {
   NavbarSublist,
   NavbarSublistItem,
   GuidanceItem,
+  NavbarLinks,
 };

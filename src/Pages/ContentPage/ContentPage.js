@@ -15,6 +15,7 @@ import {
   IntroSection,
   Header,
   PageWrapper,
+  ContentSection,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
@@ -132,7 +133,7 @@ const ContentPage = () => {
           <Text />
           <HelpCard help={`Find here ${params.content} about ${title}`} />
         </IntroSection>
-        <section>{mediaDisplay()}</section>
+        <ContentSection>{mediaDisplay()}</ContentSection>
       </PageWrapper>
     </>
   );

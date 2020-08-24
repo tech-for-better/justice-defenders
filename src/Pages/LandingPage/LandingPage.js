@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { FullScreenSection } from "../../Components/Styles/Containers";
 
 const LandingPage = () => {
   const history = useHistory();
@@ -10,10 +11,10 @@ const LandingPage = () => {
 
   return (
     <>
-      <section>
+      <FullScreenSection>
         <h1>Justice Defenders</h1>
         <button onClick={() => handleClick()}>Log In</button>
-      </section>
+      </FullScreenSection>
     </>
   );
 };

@@ -14,7 +14,7 @@ const HomePage = () => {
         <h1>Home Page</h1>
         <ExternalLink
           href={"https://www.justice-defenders.org/"}
-          textContent={"Visit Justice Defenders here!"}
+          textContent={"Visit Justice Defenders website."}
         />
       </PageWrapper>
     </>

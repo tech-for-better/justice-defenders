@@ -4,7 +4,7 @@ const LogoWrapper = styled.svg`
   height: 3rem;
   width: 3rem;
   cursor: pointer;
-  margin: 1rem;
+  margin-top: 1rem;
   position: absolute;
 `;
 
