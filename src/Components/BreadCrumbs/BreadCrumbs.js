@@ -21,7 +21,7 @@ const BreadCrumbs = ({ crumbs }) => {
   };
 
   return (
-    <Breadcrumbs separator="›" aria-label="breadcrumb">
+    <Breadcrumbs data-cy="breadcrumbs" separator="›" aria-label="breadcrumb">
       {LinkRenderer(crumbs)}
     </Breadcrumbs>
   );
