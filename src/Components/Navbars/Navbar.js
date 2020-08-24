@@ -76,7 +76,7 @@ const Navbar = ({ modules }) => {
         </NavbarListItem>
       </NavbarList>
       <GuidanceItem
-        style={window.location.pathname === "/extra-guidance" ? active : null}>
+        style={window.location.hash === "#/extra-guidance" ? active : null}>
         <Links data-cy="extra-guidance" to="/extra-guidance">
           Extra Guidance
         </Links>

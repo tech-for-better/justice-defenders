@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactSVG } from "react-svg";
 
 const CardContainer = styled.div`
   min-width: 10rem;
@@ -13,7 +14,7 @@ const CardContainer = styled.div`
   cursor: pointer;
 `;
 
-const Icon = styled.img`
+const Icon = styled(ReactSVG)`
   height: 2.5rem;
   width: 3rem;
   margin-bottom: 1rem;

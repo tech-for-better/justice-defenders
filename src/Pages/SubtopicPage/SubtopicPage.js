@@ -7,6 +7,9 @@ import SubNavbar from "../../Components/Navbars/SubNavbar";
 import HelpCard from "../../Components/HelpCard/HelpCard";
 import Card from "../../Components/Card/Card";
 import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
+import AudioIcon from "../../assets/audio-icon.svg";
+import ReadingsIcon from "../../assets/readings-icon.svg";
+import VideosIcon from "../../assets/videos-icon.svg";
 
 // styles
 import { CardsContainer } from "../YearPage/YearPage.style";
@@ -113,9 +116,9 @@ const SubtopicPage = () => {
         </IntroSection>
         <CardsContainer>
           {contentCards([
-            { name: "audio", icon: "../../../assets/audio-icon.png" },
-            { name: "readings", icon: "../../assets/readings-icon.png" },
-            { name: "videos", icon: "../../assets/videos-icon.png" },
+            { name: "audio", icon: AudioIcon },
+            { name: "readings", icon: ReadingsIcon },
+            { name: "videos", icon: VideosIcon },
           ])}
         </CardsContainer>
       </PageWrapper>

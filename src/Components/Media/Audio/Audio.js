@@ -1,5 +1,4 @@
 import React from "react";
-import ReactAudioPlayer from "react-audio-player";
 
 import { MediaContainer } from "../../Styles/Containers";
 
@@ -7,10 +6,14 @@ const Audio = ({ src, title }) => {
   return (
     <MediaContainer>
       <h2>{title}</h2>
-      <ReactAudioPlayer controls src={src}>
+      <audio controls src={src}>
         Your browser does not support the
         <code>audio</code> element.
-      </ReactAudioPlayer>
+      </audio>
+      <a download target="_blank" rel="noopener noreferrer" href={src}>
+        download
+        {/* <button>Download!</button> */}
+      </a>
     </MediaContainer>
   );
 };
