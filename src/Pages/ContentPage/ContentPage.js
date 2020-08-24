@@ -16,13 +16,13 @@ import {
   IntroSection,
   Header,
   PageWrapper,
+  ContentSection,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
 
 import { sortObject } from "../../Helpers/helpers";
 
 const ContentPage = () => {
-
   const params = useParams();
   const yearCollection = params.year;
   const mediaType = params.content;
@@ -57,12 +57,15 @@ const ContentPage = () => {
       .get()
       .then((doc) => {
         let data = doc.data();
+        console.log(data);
         setTitle(data.title);
-        const orderedSubtopics = sortObject(data["year1-module1-subtopics"]);
+        const orderedSubtopics = sortObject(
+          data[`${params.year}-${params.module}-subtopics`],
+        );
         const subtopicNames = Object.entries(orderedSubtopics);
         setSubtopics(subtopicNames);
       });
-  }, [subtopicCollection]);
+  }, [subtopicCollection, params]);
 
   React.useEffect(() => {
     const mediaArray = [];
@@ -97,7 +100,7 @@ const ContentPage = () => {
               open={open}
               onClose={handleClose}
               aria-labelledby={`pdf: ${media.title}`}>
-              {<Pdf src={media.url}/>}
+              {<Pdf src={media.url} />}
             </Modal>
           </li>
         );
@@ -112,7 +115,7 @@ const ContentPage = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  
+
   React.useEffect(() => {
     const year =
       yearCollection === "year1"
@@ -152,7 +155,7 @@ const ContentPage = () => {
           <Text />
           <HelpCard help={`Find here ${params.content} about ${title}`} />
         </IntroSection>
-        <section>{mediaDisplay()}</section>
+        <ContentSection>{mediaDisplay()}</ContentSection>
       </PageWrapper>
     </>
   );
