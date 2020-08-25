@@ -1,21 +1,22 @@
 import React from "react";
-import { Breadcrumbs, Link } from "@material-ui/core";
+import { Breadcrumbs, Typography } from "@material-ui/core";
+
+import { BreadcrumbLink } from "./Breadcrumbs.style";
 
 const BreadCrumbs = ({ crumbs }) => {
   const LinkRenderer = (crumbs) => {
     return crumbs.map((crumb) => {
-      return (
-        <Link
+      return crumb.title === crumbs[crumbs.length - 1].title ? (
+        <Typography
+          key={crumb.title}
           style={{ textTransform: "capitalize" }}
-          key={crumb.href}
-          color={
-            crumb.title === crumbs[crumbs.length - 1].title
-              ? "textPrimary"
-              : "inherit"
-          }
-          href={`/#${crumb.href}`}>
+          color="textPrimary">
+          {crumb.title}
+        </Typography>
+      ) : (
+        <BreadcrumbLink key={crumb.title} to={`${crumb.href}`}>
           {crumb.title ? crumb.title : ""}
-        </Link>
+        </BreadcrumbLink>
       );
     });
   };

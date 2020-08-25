@@ -2,19 +2,22 @@ import React from "react";
 
 // components
 import Navbar from "../../Components/Navbars/Navbar";
-import { PageWrapper } from "../../Components/Styles/Containers";
-
 import ExternalLink from "../../Components/ExternalLink/ExternalLink";
+
+import { MainTitle } from "../../Components/Styles/Typography";
+import { PageWrapper } from "../../Components/Styles/Containers";
 
 const HomePage = () => {
   return (
     <>
       <Navbar />
       <PageWrapper>
-        <h1>Home Page</h1>
+        <MainTitle>
+          Welcome to the Justice Defenders LLB learning platform!
+        </MainTitle>
         <ExternalLink
           href={"https://www.justice-defenders.org/"}
-          textContent={"Visit Justice Defenders website."}
+          textContent={"Visit Justice Defenders website →"}
         />
       </PageWrapper>
     </>

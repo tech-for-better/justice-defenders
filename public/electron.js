@@ -1,10 +1,7 @@
 const electron = require("electron");
 const path = require("path");
 const isDev = require("electron-is-dev");
-// const { shell } = require("electron");
-// const isElectron = require("is-electron");
-// window.shell = shell;
-// window.isElectron = isElectron;
+
 const app = electron.app;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
@@ -16,16 +13,14 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    // width: 800,
-    // height: 600,
-    fullscreenWindowTitle: "true",
-    fullscreen: "true",
+    width: 800,
+    height: 600,
     title: "Justice Defenders",
     webPreferences: {
       preload: path.resolve(__dirname, "preload.js"),
     },
   });
-
+  mainWindow.maximize();
   // and load the index.html of the app.
   const startUrl = isDev
     ? "http://localhost:3000"

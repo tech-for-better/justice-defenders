@@ -36,10 +36,14 @@ const Navbar = ({ modules }) => {
   };
 
   const active = {
-    backgroundColor: "white",
+    backgroundColor: "#fbfaf8",
     textDecoration: "underline",
+    color: "#010F1F",
   };
-
+  const normal = {
+    backgroundColor: "#FAB900",
+    color: "#010F1F",
+  };
   return (
     <NavbarContainer>
       <Logo />
@@ -76,8 +80,13 @@ const Navbar = ({ modules }) => {
         </NavbarListItem>
       </NavbarList>
       <GuidanceItem
-        style={window.location.hash === "#/extra-guidance" ? active : null}>
-        <Links data-cy="extra-guidance" to="/extra-guidance">
+        style={window.location.hash === "#/extra-guidance" ? active : normal}>
+        <Links
+          style={{
+            textTransform: "uppercase",
+          }}
+          data-cy="extra-guidance"
+          to="/extra-guidance">
           Extra Guidance
         </Links>
       </GuidanceItem>

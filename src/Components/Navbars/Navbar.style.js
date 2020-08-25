@@ -5,10 +5,10 @@ const NavbarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 20vw;
-  background-color: lightgrey;
-  border-right: 1px white solid;
+  background-color: #010f1f;
+  border-right: 1px #fbfaf8 solid;
   align-items: center;
+  color: #fbfaf8;
 `;
 
 const NavbarList = styled.ul`
@@ -16,7 +16,7 @@ const NavbarList = styled.ul`
   flex: 2;
   margin-bottom: 2rem;
   margin-top: 5rem;
-  width: 100%;
+  width: 180px;
 `;
 const NavbarListItem = styled.li`
   list-style: none;
@@ -27,10 +27,11 @@ const NavbarSublist = styled.ul`
   padding: 0;
   flex: 2;
   margin-top: 0.5rem;
+  width: 180px;
 `;
 const NavbarSublistItem = styled.li`
   list-style: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0 0.5rem 1rem;
   width: 100%;
 `;
 
@@ -42,13 +43,16 @@ const GuidanceItem = styled.div`
 `;
 const NavbarLinks = styled(Link)`
   text-decoration: none;
+  text-transform: uppercase;
   padding-left: 1rem;
-  &:focus,
-  &:hover,
+  padding-right: 1rem;
+  display: block;
+  &:hover {
+    text-decoration: underline;
+  }
   &:visited,
   &:link,
   &:active {
-    text-decoration: none;
     color: currentColor;
   }
 `;

@@ -78,7 +78,7 @@ const ContentPage = () => {
       });
   }, [contentCollection]);
 
-  const mediaDisplay = () => {
+  const mediaDisplay = (content) => {
     if (mediaType === "videos") {
       return content.map((media) => {
         return <Video key={media.url} src={media.url} title={media.title} />;
@@ -89,7 +89,7 @@ const ContentPage = () => {
       });
     } else {
       return content.map((media) => {
-        return <Pdf key={media.title} media={media}></Pdf>;
+        return <Pdf key={media.title} media={media} />;
       });
     }
   };
@@ -127,13 +127,13 @@ const ContentPage = () => {
       <PageWrapper>
         {<BreadCrumbs crumbs={crumbs}></BreadCrumbs>}
         <Header>
-          <Heading>{params.content}</Heading>
+          <Heading data-cy="content-heading">{params.content}</Heading>
         </Header>
         <IntroSection>
           <Text />
           <HelpCard help={`Find here ${params.content} about ${title}`} />
         </IntroSection>
-        <ContentSection>{mediaDisplay()}</ContentSection>
+        <ContentSection>{mediaDisplay(content)}</ContentSection>
       </PageWrapper>
     </>
   );
