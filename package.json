@@ -23,7 +23,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.0",
     "react-svg": "^11.0.36",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "is-electron": "^2.2.0"
   },
   "main": "public/electron.js",
   "scripts": {
@@ -44,9 +45,15 @@
     "files": [
       "build/**/*",
       "node_modules/**/*",
-      "assets/*icon.*",
-      "assets/*"
-    ]
+      "build/icon.*",
+      "build/preload.js"
+    ],
+    "mac": {
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "icon": "build/icon.ico"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -76,7 +83,6 @@
     "electron-builder": "^22.8.0",
     "foreman": "^3.0.1",
     "husky": "^4.2.5",
-    "is-electron": "^2.2.0",
     "lint-staged": "^10.2.11",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
