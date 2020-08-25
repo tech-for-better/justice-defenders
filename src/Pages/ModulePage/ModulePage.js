@@ -79,7 +79,7 @@ const ModulePage = (props) => {
 
   const crumbs = [
     { title: `${year}`, href: `/${yearCollection}` },
-    { title: moduleInfo.title, href: `/${moduleCollection}` },
+    { title: moduleInfo.title, href: `/${yearCollection}/${params.module}` },
   ];
 
   if (modules) {
