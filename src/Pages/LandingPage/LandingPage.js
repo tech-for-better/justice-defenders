@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import isElectron from "is-electron";
+// import isElectron from "is-electron";
 
-import WinApp from "../../assets/win-unpacked.zip";
+// import WinApp from "../../assets/win-unpacked.zip";
 import JusticeDefenders from "../../assets/jf-icon.svg";
 
 import { FullScreenSection } from "../../Components/Styles/Containers";
@@ -27,11 +27,11 @@ const LandingPage = () => {
           <LandingButton onClick={() => handleClick()}>
             Get Started!
           </LandingButton>
-          {!isElectron() && (
+          {/* {!isElectron() && (
             <a download href={WinApp}>
               <LandingButton>Download for Windows</LandingButton>
             </a>
-          )}
+          )} */}
         </ButtonContainer>
       </FullScreenSection>
     </>
