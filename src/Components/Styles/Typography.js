@@ -24,11 +24,27 @@ const Links = styled(Link)`
 `;
 const XternalLink = styled.a`
   text-decoration: inherit;
-  color: inherit;
+  font-size: 1.2rem;
+  background-color: #e3032e;
+  padding: 0.7rem;
+  text-transform: uppercase;
+  color: #fbfaf8;
+  transition: color 0.4s ease-out, background-color 0.4s ease-out;
+  position: fixed;
+  bottom: 15%;
+  right: 0;
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
+    background-color: #fab900;
+    color: black;
   }
 `;
 
-export { Text, Heading, Links, XternalLink };
+const MainTitle = styled.h1`
+  font-weight: 300;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  text-align: center;
+`;
+
+export { Text, Heading, Links, XternalLink, MainTitle };

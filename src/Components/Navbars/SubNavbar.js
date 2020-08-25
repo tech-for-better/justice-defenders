@@ -63,8 +63,9 @@ const SubNavbar = ({ subtopics, title }) => {
   };
 
   const active = {
-    backgroundColor: "white",
+    backgroundColor: "#fbfaf8",
     textDecoration: "underline",
+    color: "#010F1F",
   };
 
   return (

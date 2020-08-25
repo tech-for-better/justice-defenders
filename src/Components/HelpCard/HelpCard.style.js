@@ -19,7 +19,7 @@ const SVGWrapper = styled.svg`
   width: 2rem;
   position: absolute;
   top: -6px;
-  left: -10px;
+  right: -10px;
 `;
 
 export { HelpContainer, SVGWrapper };

@@ -1,20 +1,22 @@
 import React from "react";
 
-import { MediaContainer } from "../../Styles/Containers";
+import DownloadIcon from "../../../assets/download.svg";
+
+import { AudioContainer } from "../../Styles/Containers";
+import { AudioName, AudioPlayer, Download } from "./Audio.style";
 
 const Audio = ({ src, title }) => {
   return (
-    <MediaContainer>
-      <h2>{title}</h2>
-      <audio controls src={src}>
+    <AudioContainer>
+      <AudioName>{title}:</AudioName>
+      <AudioPlayer controls src={src}>
         Your browser does not support the
         <code>audio</code> element.
-      </audio>
+      </AudioPlayer>
       <a download target="_blank" rel="noopener noreferrer" href={src}>
-        download
-        {/* <button>Download!</button> */}
+        <Download src={DownloadIcon} />
       </a>
-    </MediaContainer>
+    </AudioContainer>
   );
 };
 
