@@ -36,7 +36,7 @@ const Pdf = ({ media }) => {
 
   return (
     <PdfWrapper key={media.title}>
-      <PdfLink type="button" onClick={handleOpen}>
+      <PdfLink type="button" onClick={handleOpen} data-cy="content-media">
         {media.title}
       </PdfLink>
       <Modal

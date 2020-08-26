@@ -12,7 +12,7 @@ import {
 
 const Audio = ({ src, title }) => {
   return (
-    <AudioContainer>
+    <AudioContainer data-cy="content-media">
       <AudioName>{title}:</AudioName>
       <AudioPlayer controls src={src}>
         Your browser does not support the
