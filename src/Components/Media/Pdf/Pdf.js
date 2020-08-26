@@ -2,7 +2,10 @@ import React from "react";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
 
+import DownloadIcon from "../../../assets/download.svg";
+
 import { PdfWrapper, PdfLink } from "./Pdf.style";
+import { Download } from "../Audio/Audio.style";
 
 const Pdf = ({ media }) => {
   const [open, setOpen] = React.useState(false);
@@ -44,6 +47,9 @@ const Pdf = ({ media }) => {
           <embed src={media.url} width="100%" height="100%"></embed>
         </div>
       </Modal>
+      <a download target="_blank" rel="noopener noreferrer" href={media.url}>
+        <Download src={DownloadIcon} />
+      </a>
     </PdfWrapper>
   );
 };
