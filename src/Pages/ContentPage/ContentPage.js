@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
+import isElectron from "is-electron";
 
 import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
@@ -86,12 +87,12 @@ const ContentPage = () => {
   React.useEffect(() => {
     if (mediaType === "videos") {
       const videos = content.map((media) => {
-        return <Video key={media.url} src={media.url} title={media.title} />;
+        return <Video key={media.title} src={media.url} title={media.title} />;
       });
       setRender(videos);
     } else if (mediaType === "audio") {
       const audio = content.map((media) => {
-        return <Audio key={media.url} src={media.url} title={media.title} />;
+        return <Audio key={media.title} src={media.url} title={media.title} />;
       });
       setRender(audio);
     } else {
@@ -139,7 +140,13 @@ const ContentPage = () => {
         </Header>
         <IntroSection>
           <Text />
-          <HelpCard help={`Find here ${params.content} about ${title}`} />
+          <HelpCard
+            help={
+              isElectron()
+                ? `Find here ${params.content} about ${title}`
+                : `Find here ${params.content} about ${title}. You can right click the open item to download it.`
+            }
+          />
         </IntroSection>
         <ContentSection>{render.map((media) => media)}</ContentSection>
       </PageWrapper>

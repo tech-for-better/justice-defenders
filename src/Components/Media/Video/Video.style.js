@@ -11,5 +11,11 @@ const VideoHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-
-export { VideoElement, VideoHeader };
+const VideoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 1rem;
+  max-width: 500px;
+`;
+export { VideoElement, VideoHeader, VideoContainer };

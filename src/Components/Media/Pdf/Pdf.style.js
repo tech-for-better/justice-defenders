@@ -15,6 +15,9 @@ const PdfLink = styled.button`
   cursor: pointer;
   outline: inherit;
   text-decoration: underline;
+  &:hover {
+    color: #e3032e;
+  }
 `;
 const ClosePdf = styled.button`
   position: absolute;

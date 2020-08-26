@@ -2,8 +2,7 @@ import React from "react";
 import isElectron from "is-electron";
 
 import DownloadIcon from "../../../assets/download.svg";
-import { VideoElement, VideoHeader } from "./Video.style";
-import { VideoContainer } from "../../Styles/Containers";
+import { VideoElement, VideoHeader, VideoContainer } from "./Video.style";
 import { Download } from "../Audio/Audio.style";
 
 const Video = ({ src, title }) => {
