@@ -23,6 +23,8 @@ const PageWrapper = styled.div`
   padding: 2rem;
   width: 100%;
   position: relative;
+  max-height: 100vh;
+  overflow: scroll;
 `;
 const IntroTextWrapper = styled.div`
   margin-right: 2rem;
@@ -31,23 +33,7 @@ const IntroTextWrapper = styled.div`
 `;
 const ContentSection = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-`;
-const AudioContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 1rem;
-  flex-basis: 100%;
-`;
-
-const VideoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin: 1rem;
-  max-width: 500px;
 `;
 
 export {
@@ -57,6 +43,4 @@ export {
   FullScreenSection,
   IntroTextWrapper,
   ContentSection,
-  AudioContainer,
-  VideoContainer,
 };

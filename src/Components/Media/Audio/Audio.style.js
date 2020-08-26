@@ -17,5 +17,11 @@ const Download = styled(ReactSVG)`
   width: 2rem;
   height: 2rem;
 `;
-
-export { AudioName, AudioPlayer, Download };
+const AudioContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem;
+  flex-basis: 100%;
+`;
+export { AudioName, AudioPlayer, Download, AudioContainer };

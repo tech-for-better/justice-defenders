@@ -5,7 +5,7 @@ import isElectron from "is-electron";
 
 import DownloadIcon from "../../../assets/download.svg";
 
-import { PdfWrapper, PdfLink } from "./Pdf.style";
+import { PdfWrapper, PdfLink, ClosePdf } from "./Pdf.style";
 import { Download } from "../Audio/Audio.style";
 
 const Pdf = ({ media }) => {
@@ -45,6 +45,7 @@ const Pdf = ({ media }) => {
         onClose={handleClose}
         aria-labelledby={`pdf: ${media.title}`}>
         <div className={classes.paper}>
+          <ClosePdf onClick={handleClose}>Close</ClosePdf>
           <embed src={media.url} width="100%" height="100%"></embed>
         </div>
       </Modal>

@@ -3,8 +3,12 @@ import isElectron from "is-electron";
 
 import DownloadIcon from "../../../assets/download.svg";
 
-import { AudioContainer } from "../../Styles/Containers";
-import { AudioName, AudioPlayer, Download } from "./Audio.style";
+import {
+  AudioName,
+  AudioPlayer,
+  Download,
+  AudioContainer,
+} from "./Audio.style";
 
 const Audio = ({ src, title }) => {
   return (

@@ -22,7 +22,18 @@ const BreadCrumbs = ({ crumbs }) => {
   };
 
   return (
-    <Breadcrumbs data-cy="breadcrumbs" separator="›" aria-label="breadcrumb">
+    <Breadcrumbs
+      style={{
+        position: "fixed",
+        backgroundColor: "#fbfaf8",
+        top: "0",
+        padding: "1rem 0",
+        width: "100%",
+        zIndex: "99",
+      }}
+      data-cy="breadcrumbs"
+      separator="›"
+      aria-label="breadcrumb">
       {LinkRenderer(crumbs)}
     </Breadcrumbs>
   );
