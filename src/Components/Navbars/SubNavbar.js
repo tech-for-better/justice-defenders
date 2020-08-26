@@ -10,8 +10,6 @@ import {
   NavbarLinks,
 } from "./Navbar.style";
 
-import { sortObject } from "../../Helpers/helpers";
-
 const SubNavbar = ({ subtopics, title }) => {
   const params = useParams();
 
@@ -20,8 +18,7 @@ const SubNavbar = ({ subtopics, title }) => {
   const subtopic = params.subtopic;
 
   const contentRender = (content) => {
-    const orderedSubtopic = sortObject(content);
-    const contentArray = Object.entries(orderedSubtopic);
+    const contentArray = Object.entries(content);
     return contentArray.map((content) => {
       return (
         <NavbarSublistItem
@@ -51,9 +48,10 @@ const SubNavbar = ({ subtopics, title }) => {
           {title === subtopic[1] ? (
             <NavbarSublist>
               {contentRender({
+                audio: "Audio",
                 readings: "Readings",
                 videos: "Videos",
-                audio: "Audio",
+                assessments: "Assessments",
               })}
             </NavbarSublist>
           ) : null}

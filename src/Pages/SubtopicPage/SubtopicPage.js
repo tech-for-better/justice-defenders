@@ -10,6 +10,7 @@ import BreadCrumbs from "../../Components/BreadCrumbs/BreadCrumbs";
 import AudioIcon from "../../assets/audio-icon.svg";
 import ReadingsIcon from "../../assets/readings-icon.svg";
 import VideosIcon from "../../assets/videos-icon.svg";
+import AssessIcon from "../../assets/assess-icon.svg";
 
 // styles
 import { CardsContainer } from "../YearPage/YearPage.style";
@@ -120,6 +121,7 @@ const SubtopicPage = () => {
             { name: "audio", icon: AudioIcon },
             { name: "readings", icon: ReadingsIcon },
             { name: "videos", icon: VideosIcon },
+            { name: "assessments", icon: AssessIcon },
           ])}
         </CardsContainer>
       </PageWrapper>

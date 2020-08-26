@@ -95,11 +95,16 @@ const ContentPage = () => {
         return <Audio key={media.title} src={media.url} title={media.title} />;
       });
       setRender(audio);
-    } else {
-      const media = content.map((media) => {
+    } else if (mediaType === "readings") {
+      const readings = content.map((media) => {
         return <Pdf key={media.title} media={media} />;
       });
-      setRender(media);
+      setRender(readings);
+    } else {
+      const assessments = content.map((media) => {
+        return <Pdf key={media.title} media={media} />;
+      });
+      setRender(assessments);
     }
   }, [content, mediaType, contentCollection]);
 
