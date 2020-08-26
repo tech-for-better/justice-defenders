@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "@material-ui/core/Modal";
 import { makeStyles } from "@material-ui/core/styles";
+import isElectron from "is-electron";
 
 import DownloadIcon from "../../../assets/download.svg";
 
@@ -47,9 +48,11 @@ const Pdf = ({ media }) => {
           <embed src={media.url} width="100%" height="100%"></embed>
         </div>
       </Modal>
-      <a download target="_blank" rel="noopener noreferrer" href={media.url}>
-        <Download src={DownloadIcon} />
-      </a>
+      {isElectron() && (
+        <a download target="_blank" rel="noopener noreferrer" href={media.url}>
+          <Download src={DownloadIcon} />
+        </a>
+      )}
     </PdfWrapper>
   );
 };
