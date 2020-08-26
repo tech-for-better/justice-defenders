@@ -8,7 +8,7 @@ import { Download } from "../Audio/Audio.style";
 const Video = ({ src, title }) => {
   return (
     <>
-      <VideoContainer>
+      <VideoContainer data-cy="content-media">
         <VideoHeader>
           <h2>{title}:</h2>
           {isElectron() && (
