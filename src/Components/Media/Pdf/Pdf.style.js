@@ -16,4 +16,11 @@ const PdfLink = styled.button`
   outline: inherit;
   text-decoration: underline;
 `;
-export { PdfWrapper, PdfLink };
+const ClosePdf = styled.button`
+  position: absolute;
+  padding: 0.5rem 1rem;
+  bottom: -40px;
+  right: 50%;
+  text-transform: uppercase;
+`;
+export { PdfWrapper, PdfLink, ClosePdf };
