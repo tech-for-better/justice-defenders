@@ -33,6 +33,7 @@ const ContentPage = () => {
   const [title, setTitle] = React.useState([]);
   const [content, setContent] = React.useState([]);
   const [crumbs, setCrumbs] = React.useState([]);
+  const [render, setRender] = React.useState([]);
 
   React.useEffect(() => {
     firebase
@@ -75,27 +76,31 @@ const ContentPage = () => {
           mediaArray.push(doc.data());
           return doc.data();
         });
+        return mediaArray;
       })
-      .then(() => {
+      .then((mediaArray) => {
         setContent(mediaArray);
       });
   }, [contentCollection]);
 
-  const mediaDisplay = (content) => {
+  React.useEffect(() => {
     if (mediaType === "videos") {
-      return content.map((media) => {
+      const videos = content.map((media) => {
         return <Video key={media.url} src={media.url} title={media.title} />;
       });
+      setRender(videos);
     } else if (mediaType === "audio") {
-      return content.map((media) => {
+      const audio = content.map((media) => {
         return <Audio key={media.url} src={media.url} title={media.title} />;
       });
+      setRender(audio);
     } else {
-      return content.map((media) => {
+      const media = content.map((media) => {
         return <Pdf key={media.title} media={media} />;
       });
+      setRender(media);
     }
-  };
+  }, [content, mediaType, contentCollection]);
 
   React.useEffect(() => {
     const year =
@@ -136,7 +141,7 @@ const ContentPage = () => {
           <Text />
           <HelpCard help={`Find here ${params.content} about ${title}`} />
         </IntroSection>
-        <ContentSection>{mediaDisplay(content)}</ContentSection>
+        <ContentSection>{render.map((media) => media)}</ContentSection>
       </PageWrapper>
     </>
   );
