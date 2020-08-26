@@ -1,16 +1,15 @@
 describe("Guidance page renders correctly", () => {
   beforeEach(() => {
-    cy.visit("#/extra");
+    cy.visit("#/extra-guidance");
   });
-  it(" should contain button take takes to home page", () => {
-    cy.get("[data-cy=start-button]").click();
-    cy.url().should("eq", Cypress.config().baseUrl + "/#/home");
+  it("should contain correct heading", () => {
+    cy.get("[data-cy=heading]").contains("Extra guidance");
   });
 
-  it("should show Justice Defenders logo", () => {
-    cy.get("[data-cy=jd-logo]").and("be.visible");
+  it("should render intro text", () => {
+    cy.get("[data-cy=intro]").and("be.visible");
   });
-  it("should show button to download app for windows", () => {
-    cy.get("[data-cy=win-download]").and("be.visible");
+  it("Should render at least one piece of media content", () => {
+    cy.get("[data-cy=content-media]").its("length").should("be.gt", 0);
   });
 });

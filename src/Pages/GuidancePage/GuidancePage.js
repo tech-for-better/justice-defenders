@@ -46,7 +46,7 @@ const GuidancePage = () => {
           <Heading data-cy="heading">{"Extra guidance"}</Heading>
         </Header>
         <IntroSection>
-          <Text>
+          <Text data-cy="intro">
             {
               "On this page you can find supplementary course material such as regulations and handbooks"
             }
