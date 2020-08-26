@@ -2,9 +2,11 @@ import React from "react";
 import firebase from "../../firebase";
 import { useLocation } from "react-router-dom";
 
+// components
 import Navbar from "../../Components/Navbars/Navbar";
 import Pdf from "../../Components/Media/Pdf/Pdf";
 
+// styles
 import {
   IntroSection,
   Header,
@@ -32,7 +34,7 @@ const GuidancePage = () => {
 
   const guidanceDisplay = (extraGuidance) => {
     return extraGuidance.map((guidance) => {
-      return <Pdf key={guidance.title} media={guidance}></Pdf>;
+      return <Pdf key={guidance.title} media={guidance} />;
     });
   };
 
@@ -41,10 +43,10 @@ const GuidancePage = () => {
       <Navbar />
       <PageWrapper>
         <Header>
-          <Heading>{"Extra guidance"}</Heading>
+          <Heading data-cy="heading">{"Extra guidance"}</Heading>
         </Header>
         <IntroSection>
-          <Text>
+          <Text data-cy="intro">
             {
               "On this page you can find supplementary course material such as regulations and handbooks"
             }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { red } from "../../Styles/colours";
 
 const PdfWrapper = styled.li`
   margin: 1rem;
@@ -16,7 +17,7 @@ const PdfLink = styled.button`
   outline: inherit;
   text-decoration: underline;
   &:hover {
-    color: #e3032e;
+    color: ${red};
   }
 `;
 const ClosePdf = styled.button`

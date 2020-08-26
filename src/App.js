@@ -1,7 +1,8 @@
 import React from "react";
+// Electron only accepts HashRouter
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
-// components
+// pages
 import YearPage from "./Pages/YearPage/YearPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import GuidancePage from "./Pages/GuidancePage/GuidancePage";

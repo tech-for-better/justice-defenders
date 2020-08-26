@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { ReactSVG } from "react-svg";
+import { red, yellow, white } from "../Styles/colours";
 
 const CardContainer = styled.button`
   min-height: 8rem;
   min-width: 9rem;
   max-width: 15rem;
   letter-spacing: 0.1rem;
-  background-color: #e3032e;
+  background-color: ${red};
   border: none;
   padding: 1rem;
   font-size: 0.8rem;
-  color: #fbfaf8;
+  color: ${white};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +25,7 @@ const CardContainer = styled.button`
   font-family: "IBM Plex Sans", sans-serif;
   transition: background-color 0.4s ease-out;
   &:hover {
-    background-color: #fab900;
+    background-color: ${yellow};
   }
 `;
 
