@@ -4,7 +4,12 @@ const VideoElement = styled.video`
   display: block;
   border: 1px solid black;
   border-radius: 3px;
-  max-width: 500px;
 `;
 
-export { VideoElement };
+const VideoHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export { VideoElement, VideoHeader };

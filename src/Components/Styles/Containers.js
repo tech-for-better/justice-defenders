@@ -31,15 +31,15 @@ const IntroTextWrapper = styled.div`
 `;
 const ContentSection = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
 `;
 const AudioContainer = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   margin: 1rem;
+  flex-basis: 100%;
 `;
 
 const VideoContainer = styled.div`
@@ -47,6 +47,7 @@ const VideoContainer = styled.div`
   flex-direction: column;
   align-items: left;
   margin: 1rem;
+  max-width: 500px;
 `;
 
 export {

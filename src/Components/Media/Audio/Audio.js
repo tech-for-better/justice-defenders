@@ -1,4 +1,5 @@
 import React from "react";
+import isElectron from "is-electron";
 
 import DownloadIcon from "../../../assets/download.svg";
 
@@ -13,9 +14,11 @@ const Audio = ({ src, title }) => {
         Your browser does not support the
         <code>audio</code> element.
       </AudioPlayer>
-      <a download target="_blank" rel="noopener noreferrer" href={src}>
-        <Download src={DownloadIcon} />
-      </a>
+      {isElectron() && (
+        <a download target="_blank" rel="noopener noreferrer" href={src}>
+          <Download src={DownloadIcon} />
+        </a>
+      )}
     </AudioContainer>
   );
 };

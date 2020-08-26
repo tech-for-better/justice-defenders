@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const PdfWrapper = styled.li`
   margin: 1rem;
-  width: 100%;
+  flex-basis: 100%;
+  display: flex;
 `;
 
 const PdfLink = styled.button`
