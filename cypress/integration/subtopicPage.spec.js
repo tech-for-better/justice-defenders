@@ -9,7 +9,7 @@ describe("Subtopic page functions as intended", () => {
       "#/year1/module1/subtopic1/audio",
     );
     cy.get("[data-cy=content-cards]").first().click();
-    cy.get("[data-cy=subNavbar-sublist-item").first().contains("Audio");
+    cy.get("[data-cy=subNavbar-sublist-item").first().contains("audio");
     cy.url().should(
       "eq",
       Cypress.config().baseUrl + "/#/year1/module1/subtopic1/audio",

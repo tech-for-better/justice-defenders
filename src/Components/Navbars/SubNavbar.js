@@ -46,12 +46,12 @@ const SubNavbar = ({ subtopics, title }) => {
             {subtopic[1]}
           </NavbarLinks>
           {title === subtopic[1] ? (
-            <NavbarSublist>
+            <NavbarSublist data-cy="subNavbar-sublist">
               {contentRender({
-                audio: "Audio",
-                readings: "Readings",
-                videos: "Videos",
-                assessments: "Assessments",
+                audio: "audio",
+                readings: "readings",
+                videos: "videos",
+                assessments: "assessments",
               })}
             </NavbarSublist>
           ) : null}
