@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { black } from "../Styles/colours";
 
 const HelpContainer = styled.div`
   min-width: 10rem;
@@ -6,7 +7,7 @@ const HelpContainer = styled.div`
   max-height: 10rem;
   max-width: 15rem;
   border-radius: 5px;
-  border: 1px dashed black;
+  border: 1px dashed ${black};
   display: flex;
   justify-content: center;
   align-items: center;

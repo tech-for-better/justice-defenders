@@ -1,7 +1,7 @@
 import React from "react";
 import isElectron from "is-electron";
 
-import { XternalLink } from "../Styles/Typography";
+import { XternalLink } from "./ExternalLink.style";
 
 const { shell } = window;
 

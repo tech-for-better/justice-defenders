@@ -2,8 +2,10 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import isElectron from "is-electron";
 
+// icons
 import JusticeDefenders from "../../assets/jf-icon.svg";
 
+// styles
 import { FullScreenSection } from "../../Components/Styles/Containers";
 import {
   LandingButton,
@@ -21,9 +23,9 @@ const LandingPage = () => {
   return (
     <>
       <FullScreenSection>
-        <MainTitleLogo src={JusticeDefenders} />
+        <MainTitleLogo src={JusticeDefenders} data-cy="jd-logo" />
         <ButtonContainer>
-          <LandingButton onClick={() => handleClick()}>
+          <LandingButton onClick={() => handleClick()} data-cy="start-button">
             Get Started!
           </LandingButton>
           {!isElectron() && (
@@ -32,7 +34,9 @@ const LandingPage = () => {
               href={
                 "https://firebasestorage.googleapis.com/v0/b/justice-defenders.appspot.com/o/electron-app%2Fwin-unpacked.rar?alt=media&token=6863d29b-9643-4e18-b25f-c1281ffe59eb"
               }>
-              <LandingButton>Download for Windows</LandingButton>
+              <LandingButton data-cy="win-download">
+                Download for Windows
+              </LandingButton>
             </a>
           )}
         </ButtonContainer>

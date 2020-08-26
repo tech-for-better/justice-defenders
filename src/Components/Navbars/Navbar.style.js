@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { black, white } from "../Styles/colours";
 
 const NavbarContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #010f1f;
-  border-right: 1px #fbfaf8 solid;
+  background-color: ${black};
+  border-right: 1px ${white} solid;
   align-items: center;
-  color: #fbfaf8;
+  color: ${white};
 `;
 
 const NavbarList = styled.ul`

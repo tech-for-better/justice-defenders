@@ -2,6 +2,8 @@ import React from "react";
 import firebase from "../../firebase";
 import { useParams } from "react-router-dom";
 
+import { sortObject } from "../../Helpers/helpers";
+
 // components
 import Card from "../../Components/Card/Card";
 import HelpCard from "../../Components/HelpCard/HelpCard";
@@ -17,8 +19,6 @@ import {
   PageWrapper,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
-
-import { sortObject } from "../../Helpers/helpers";
 
 const YearPage = () => {
   const params = useParams();

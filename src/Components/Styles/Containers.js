@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { black } from "../Styles/colours";
 
 const IntroSection = styled.section`
   display: flex;
@@ -10,10 +11,9 @@ const FullScreenSection = styled.section`
   min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: black;
+  background-color: ${black};
 `;
 const Header = styled.header`
   margin-top: 2rem;

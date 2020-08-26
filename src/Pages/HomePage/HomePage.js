@@ -4,6 +4,7 @@ import React from "react";
 import Navbar from "../../Components/Navbars/Navbar";
 import ExternalLink from "../../Components/ExternalLink/ExternalLink";
 
+// styles
 import { MainTitle } from "../../Components/Styles/Typography";
 import { PageWrapper } from "../../Components/Styles/Containers";
 

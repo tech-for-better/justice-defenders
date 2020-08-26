@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import firebase from "../../firebase";
 import isElectron from "is-electron";
 
+import { sortObject } from "../../Helpers/helpers";
+
+// components
 import Navbar from "../../Components/Navbars/Navbar";
 import SubNavbar from "../../Components/Navbars/SubNavbar";
 import HelpCard from "../../Components/HelpCard/HelpCard";
@@ -19,8 +22,6 @@ import {
   ContentSection,
 } from "../../Components/Styles/Containers";
 import { Text, Heading } from "../../Components/Styles/Typography";
-
-import { sortObject } from "../../Helpers/helpers";
 
 const ContentPage = () => {
   const params = useParams();
