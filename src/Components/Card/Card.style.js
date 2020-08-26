@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { ReactSVG } from "react-svg";
 
 const CardContainer = styled.button`
-  min-height: 3rem;
-  min-width: 8rem;
+  min-height: 8rem;
+  min-width: 9rem;
   max-width: 15rem;
   letter-spacing: 0.1rem;
   background-color: #e3032e;
