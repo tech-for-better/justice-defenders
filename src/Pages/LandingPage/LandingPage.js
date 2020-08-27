@@ -32,7 +32,7 @@ const LandingPage = () => {
             <a
               download
               href={
-                "https://firebasestorage.googleapis.com/v0/b/justice-defenders.appspot.com/o/electron-app%2Fwin-unpacked.zip?alt=media&token=cdeea72a-21cd-408a-8149-a714cd019b76"
+                "https://firebasestorage.googleapis.com/v0/b/justice-defenders.appspot.com/o/electron-app%2Fwin-unpacked.zip?alt=media&token=1e656c26-b12d-4087-9bab-5d2bc86b1480"
               }>
               <LandingButton data-cy="win-download">
                 Download for Windows
