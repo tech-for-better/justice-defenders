@@ -1,6 +1,6 @@
 {
   "name": "justice-defenders",
-  "description": "Platform to provide access to legal training for prison inmates in Kenya and Uganda",
+  "description": "Platform to facilitate access to legal training for prison inmates and guards in Kenya and Uganda",
   "author": "Campbell Docherty (https://github.com/CampbellDochert) and Giovanna Aveiro (https://github.com/glrta)",
   "productName": "Justice Defenders",
   "version": "0.1.0",
