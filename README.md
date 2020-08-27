@@ -15,12 +15,12 @@ See it [live](https://justice-defenders.netlify.app/#/).
 - Navigate to [repo](https://github.com/tech-for-better/justice-defenders)
 - Clone it with `git clone https://github.com/tech-for-better/justice-defenders.git` and `cd` into the project folder
 - `npm i` to install all dependencies
-- use `npm run start` to start the server in the browser or `npm run dev` to start the server both in the borwser and Electron.
+- use `npm run start` to start the server in the browser or `npm run dev` to start the server both in the browser and Electron.
 
 ### Tests
 
 - End-to-end test done with Cypress, covering over 95% of the codebase.
-- Use script `npm run cy:open` to run the the specs.
+- Use script `npm run cy:open` to run the specs.
 
 ## Tech used
 
