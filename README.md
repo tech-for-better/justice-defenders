@@ -78,11 +78,12 @@ Project duration: 27th July to 27th August 2020.
 
 ## Future development
 
-- Making the content available offline in the desktop app using database NeDB. Some useful resouces:
+- Making the content available offline in the desktop app using database NeDB. Some useful resources:
   - [Local Data storage for Electron](https://dev.to/ctxhou/local-data-storage-for-electron-2h4p)
   - [How to store user data in Electron](https://medium.com/cameron-nokes/how-to-store-user-data-in-electron-3ba6bf66bc1e)
 - Certification to proper distribution of the app. This has budget implications.
 - Authentication and user features listed in the user stories above.
+- Improve performance.
 
 ## Developers
 
