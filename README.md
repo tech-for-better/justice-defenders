@@ -83,7 +83,7 @@ Project duration: 27th July to 27th August 2020.
   - [How to store user data in Electron](https://medium.com/cameron-nokes/how-to-store-user-data-in-electron-3ba6bf66bc1e)
 - Certification to proper distribution of the app. This has budget implications.
 - Authentication and user features listed in the user stories above.
-- Improve performance.
+- Improve performance and error handling.
 
 ## Developers
 
