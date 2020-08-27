@@ -79,6 +79,7 @@ Project duration: 27th July to 27th August 2020.
 - Certification to proper distribution of the app. This has budget implications.
 - Authentication and user features listed in the user stories above.
 - Improve performance and error handling.
+- Admin users able to review assessments via the platform.
 
 ## Developers
 
