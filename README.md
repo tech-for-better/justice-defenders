@@ -66,22 +66,22 @@ Project duration: 27th July to 27th August 2020.
 
 ### Usability testing
 
-- Carried out at the end of design week With prototype and again at the end of the project with final product with 2 users in Kenya
-- Tasks asked requested:
+- Carried out at the end of design week with a prototype and again at the end of the project with final product with 2 users in Kenya
+- Tasks requested:
   1. Can you navigate to Year 1, Tort Law, Informed Consent?
   2. Can you open some readings?
   3. Can you listen to some audio?
   4. Can you tell us where you are in the app?
   5. If you were stuck or lost what would you do?
   6. Finally, can you navigate home?
-- Feedback overall very positive in regards to navitation and emphasis on making the content available offline.
+- Feedback overall very positive in regards to navigation and emphasis on making the content available offline.
 
 ## Future development
 
 - Making the content available offline in the desktop app using database NeDB. Some useful resouces:
   - [Local Data storage for Electron](https://dev.to/ctxhou/local-data-storage-for-electron-2h4p)
   - [How to store user data in Electron](https://medium.com/cameron-nokes/how-to-store-user-data-in-electron-3ba6bf66bc1e)
-- Certification to proper distribution of the app. This has budget implecations.
+- Certification to proper distribution of the app. This has budget implications.
 - Authentication and user features listed in the user stories above.
 
 ## Developers
