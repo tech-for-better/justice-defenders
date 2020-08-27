@@ -1,7 +1,3 @@
-<a href="https://codecov.io/gh/tech-for-better/justice-defenders">
-  <img src="https://codecov.io/gh/tech-for-better/justice-defenders/branch/master/graph/badge.svg" />
-</a>
-
 # Justice Defenders
 
 [Justice Defenders](https://www.justice-defenders.org/) custom platform to facilitate access to legal training to prison inmates and guards in Kenya and Uganda so they can provide legal services for themselves and others.
