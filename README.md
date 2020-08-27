@@ -42,7 +42,7 @@ Project duration: 27th July to 27th August 2020.
 
 - Problem statement:
 - Dicovery and definition workshops done using [Miro board](https://miro.com/app/board/o9J_ko8RJ7E=/).
-- Prototype on Firma available [here](https://www.figma.com/file/7Uf0JhDeX4bJs4OnC1xcqL/Justice-Defenders?node-id=0%3A1).
+- Prototype on Figma available [here](https://www.figma.com/file/7Uf0JhDeX4bJs4OnC1xcqL/Justice-Defenders?node-id=0%3A1).
 
 ### User stories
 
