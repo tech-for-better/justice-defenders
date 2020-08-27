@@ -32,7 +32,7 @@ Project duration: 27th July to 27th August 2020.
 - Design week: ideation to prototyping and first round of usability testing.
 - Two 6-day build sprints:
   - first focused on building the database and skeleton of the platform.
-  - second focused on packaging and distributing desktop app, adding extra pages, end-to-end tests, enhancing the user experience and final usability testing.
+  - second focused on packaging and distributing desktop app, adding extra pages, enhancing the user experience and styling following the brand guidelines, end-to-end tests and final usability testing.
 
 ## Design process
 
