@@ -40,7 +40,6 @@ Project duration: 27th July to 27th August 2020.
 
 ## Design process
 
-- Problem statement:
 - Dicovery and definition workshops on [Miro board](https://miro.com/app/board/o9J_ko8RJ7E=/).
 - Prototype on Figma available [here](https://www.figma.com/file/7Uf0JhDeX4bJs4OnC1xcqL/Justice-Defenders?node-id=0%3A1).
 
